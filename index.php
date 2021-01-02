@@ -69,12 +69,30 @@
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
-                                    <h2 class="fs-title">Personal Information:</h2>
+                                    <h2 class="fs-title">Customise your eCard</h2>
                                 </div>
                                 <div class="col-5">
                                     <h2 class="steps">Step 2 of 4</h2>
                                 </div>
-                            </div> <label class="fieldlabels">First Name: *</label> <input type="text" name="fname" placeholder="First Name" /> <label class="fieldlabels">Last Name: *</label> <input type="text" name="lname" placeholder="Last Name" /> <label class="fieldlabels">Contact No.: *</label> <input type="text" name="phno" placeholder="Contact No." /> <label class="fieldlabels">Alternate Contact No.: *</label> <input type="text" name="phno_2" placeholder="Alternate Contact No." />
+                            </div> 
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                
+                                    <canvas id="cardcanvas" style="width: 100%;"></canvas>
+
+                                </div>
+                                
+                                <div class="col-md-6">
+                                
+                                    this is the second column
+                                
+                                </div>
+
+                            </div>
+                            
+                            <div class="clearfix"></div>
+
                         </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     <fieldset>

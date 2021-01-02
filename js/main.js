@@ -16,6 +16,8 @@
         card_2.stop(); // stop animation 2
         card_3.stop(); // stop animation 3
 
+        //create canvas with image
+
     });
 
     $('.freezeGIF').click(function () {
@@ -47,3 +49,22 @@
     });
 
 })(jQuery);
+
+var img = new Image();
+img.src = './template/ecard-template/ecard-template.png';
+
+
+// wait for the image to load
+img.onload = function () {
+    fill_canvas(img); // fill the canvas with image
+}
+
+function fill_canvas(img) {
+    var canvas = document.getElementById('cardcanvas');
+    var ctx = canvas.getContext('2d');
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0, 0); // draw the image on the canvas
+}
