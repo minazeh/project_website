@@ -62,7 +62,7 @@
                         </div> 
 
                         <input type="button" name="next" class="next action-button" value="Next" />
-
+    
                     </fieldset>
 
                     <fieldset>
@@ -77,15 +77,15 @@
                             </div> 
                             <div class="row">
 
-                                <div class="col-md-6">
-                                
-                                    <canvas id="cardcanvas" style="width: 100%;"></canvas>
+                                <div class="col-md-6" id="stage-parent">
+
+                                    <div id="container"></div>
 
                                 </div>
                                 
                                 <div class="col-md-6">
                                 
-                                    this is the second column
+                                    <?php $image = new Image(); $image->show_stickers_in_slider(); ?>
                                 
                                 </div>
 

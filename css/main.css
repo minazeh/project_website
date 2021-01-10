@@ -261,3 +261,12 @@ textarea {
   }
 }
 
+/* THis is my own css code. */
+
+.sticker-slider .item img{
+  width: 100%;
+}
+
+#stage-parent{
+  width: 100%;
+}

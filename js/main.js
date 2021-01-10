@@ -1,5 +1,12 @@
 (function ($) {
 
+    $(document).ready(function(){
+
+        fitStageIntoParentContainer();
+        console.log('this has happened');
+
+    });
+
     const card_1 = new Freezeframe('.freezeGIF_1', {
         trigger: 'false'
     });
@@ -48,23 +55,77 @@
 
     });
 
+    $('.action-button').click(function(){
+        
+        setTimeout(function(){
+            fitStageIntoParentContainer();
+        },500);
+        
+
+    });
+
+
+        
+  
 })(jQuery);
 
-var img = new Image();
-img.src = './template/ecard-template/ecard-template.png';
+var stageWidth = 500;
+var stageHeight = 500;
+
+var stage = new Konva.Stage({
+    container: 'container',
+    width: stageWidth,
+    height: stageHeight,
+});
+
+var layer = new Konva.Layer();
+stage.add(layer);
+
+// what is url of dragging element?
+var itemURL = '';
+document.getElementById('drag-items').addEventListener('dragstart', function (e) {
+    itemURL = e.target.src;
+});
+
+var con = stage.container();
+con.addEventListener('dragover', function (e) {
+e.preventDefault(); // !important
+});
+
+con.addEventListener('drop', function (e) {
+e.preventDefault();
+// now we need to find pointer position
+// we can't use stage.getPointerPosition() here, because that event
+// is not registered by Konva.Stage
+// we can register it manually:
+stage.setPointersPositions(e);
+
+Konva.Image.fromURL(itemURL, function (image) {
+    layer.add(image);
+
+    image.position(stage.getPointerPosition());
+    image.draggable(true);
+
+    layer.draw();
+});
+});
 
 
-// wait for the image to load
-img.onload = function () {
-    fill_canvas(img); // fill the canvas with image
+// scaling canvas
+function fitStageIntoParentContainer() {
+    var container = document.querySelector('#stage-parent');
+
+    // now we need to fit stage into parent
+    var containerWidth = container.offsetWidth;
+    // to do this we need to scale the stage
+    var scale = containerWidth / stageWidth;
+
+    stage.width(stageWidth * scale);
+    stage.scale({ x: scale, y: scale });
+    stage.draw();
+
+    console.log('this has been triggered');
 }
 
-function fill_canvas(img) {
-    var canvas = document.getElementById('cardcanvas');
-    var ctx = canvas.getContext('2d');
 
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    ctx.drawImage(img, 0, 0); // draw the image on the canvas
-}
+// adapt the stage on any window resize
