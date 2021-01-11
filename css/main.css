@@ -263,10 +263,17 @@ textarea {
 
 /* THis is my own css code. */
 
-.sticker-slider .item img{
-  width: 100%;
+.sticker-slider{
+  list-style: none;
+  padding-left: 0px;
 }
 
-#stage-parent{
-  width: 100%;
+.sticker-slider .item{
+  display: inline-block;
+  margin: 5px;
 }
+
+.sticker-slider .item img{
+  max-width: 70px;
+}
+

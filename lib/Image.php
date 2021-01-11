@@ -9,19 +9,19 @@ class Image {
         $images = glob( $this->sticker_directory . '/*.png' );
         
         // open slider div
-        echo '<div id="drag-items" class="sticker-slider">';
+        echo '<ul id="drag-items" class="sticker-slider">';
 
         foreach( $images as $image ){
 
             // open slider item div, print image and close div
-            echo '<div class="item">';
+            echo '<li class="item">';
             echo '<img style="cursor:move;" src="' . $image . '" draggable="true" />';
-            echo '</div>';
+            echo '</li>';
 
         }
 
         // close slider div
-        echo '</div>';
+        echo '</ul>';
 
     }
 
