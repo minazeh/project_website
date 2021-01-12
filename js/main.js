@@ -5,6 +5,7 @@ var layer;
 var textLayer;
 var messageText;
 var receiverText;
+var image_url;
 
 var tr;
 
@@ -88,8 +89,8 @@ var tr;
         textLayer = new Konva.Layer();
     
         messageText = new Konva.Text({
-            x: 25,
-            y: 25,
+            x: 35,
+            y: 35,
             text:'',
             fontSize: 25,
             fontFamily: 'Helvetica',
@@ -185,16 +186,63 @@ var tr;
         },500);
         
 
-    });   
+    });  
+    
+    $('.save_canvas').click(function(){
+
+        var fileName =  generateFileName();
+       
+        var settings = {
+            
+            'url': 'testSave.php',
+            'type': 'post',
+            'data': {
+                'fileData' : stage.toDataURL(),
+                'fileName' : fileName
+            },
+            
+        }
+
+        $.ajax(settings).done(function (response) {
+            image_url = 'img/temp/' + fileName + '.png';
+            $('#temp_prev').attr('src', 'img/temp/' + fileName + '.png' );
+        });
+
+    });
+
+    $('.submitBtn').click(function(e){
+    
+        var settings = {
+            
+            'url': 'ajax.sendemail.php',
+            'type': 'post',
+            'data': {
+                'senderName' : $('#sender_name').val(),
+                'senderEmail' : $('#sender_email').val(),
+                'recipientEmail' : $('#recipient_email').val(),
+                'image_url' : ,
+            },
+            
+        }
+
+        $.ajax(settings).done(function (response) {
+           
+            console.log(response);
+
+        });
+        
+
+    });
   
 })(jQuery);
 
 
-
-
-
-
-
+function generateFileName() {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
 
 
 

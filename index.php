@@ -106,13 +106,13 @@
                             
                             <div class="clearfix"></div>
 
-                        </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </div> <input type="button" name="next" class="next action-button save_canvas" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
-                                    <h2 class="fs-title">Enter sender and recipient details:</h2>
+                                    <h2 class="fs-title">Enter sender and recipient:</h2>
                                 </div>
                                 <div class="col-5">
                                     <h2 class="steps">Step 3 of 4</h2>
@@ -120,36 +120,31 @@
                             </div> 
 
                             <div class="row">
-
-                                <div class="col-6">
-                                </div>  
-
                                 <div class="col-6">
 
-                                    <div class="mb-3">
-                                        <label for="sender_name" class="form-label">Sender Name</label>
-                                        <input type="text" class="form-control" id="sender_name">
-                                    </div>
+                                    <img src="" id="temp_prev" alt="">
 
-                                    <div class="mb-3">
-                                        <label for="sender_email" class="form-label">Sender Email</label>
-                                        <input type="email" class="form-control" id="sender_email">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="recipient_email" class="form-label">Recipient Email</label>
-                                        <input type="email" class="form-control" id="recipient_email">
-                                    </div>
-
+                                </div>
+                                <div class="col-6">
+                                    <label class="fieldlabels">Salutation</label> 
+                                    <select name="salutation" class="form-control" id="salutation">
+                                        <option value="Mr">Mr</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Mrs">Mrs</option>
+                                    </select>
+                                    <br>
+                                    <label class="fieldlabels">Sender Name</label> 
+                                    <input type="text" id="sender_name"  class="form-control" name="sender_name">
+                                    <label class="fieldlabels">Sender Email</label> 
+                                    <input type="email" id="sender_email" class="form-control" name="sender_email">
+                                    <label class="fieldlabels">Recipient Email</label> 
+                                    <input type="email" id="recipient_email"  class="form-control" name="recipient_email">
                                 </div>
                             </div>
 
-                            
-
-
-
-                           <input type="button" name="next" class="next action-button" value="Submit" /> 
-                           <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </div> 
+                        <input type="button" name="next" class="next action-button submitBtn" value="Submit" /> 
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
@@ -167,7 +162,7 @@
                             </div> <br><br>
                             <div class="row justify-content-center">
                                 <div class="col-7 text-center">
-                                    <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                    <h5 class="purple-text text-center">You Have Successfully Sent Your eCard!</h5>
                                 </div>
                             </div>
                         </div>
