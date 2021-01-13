@@ -6,7 +6,7 @@ class Image {
 
     public function show_stickers_in_slider(){
 
-        $images = glob( $this->sticker_directory . '/*.png' );
+        $images = glob( $this->sticker_directory . '/*.gif' );
         
         // open slider div
         echo '<ul id="drag-items" class="sticker-slider">';

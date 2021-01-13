@@ -6,7 +6,7 @@ var textLayer;
 var messageText;
 var receiverText;
 var image_url;
-
+var canvas = document.createElement('canvas');
 var tr;
 
 (function ($) {
@@ -43,11 +43,14 @@ var tr;
 
         layer = new Konva.Layer();
         stage.add(layer);
+
+       
     
         // what is url of dragging element?
         var itemURL = '';
         document.getElementById('drag-items').addEventListener('dragstart', function (e) {
             itemURL = e.target.src;
+            gifler(itemURL).frames(canvas, onDrawFrame);
         });
     
         var con = stage.container();
@@ -58,6 +61,9 @@ var tr;
         tr = new Konva.Transformer();
        
        
+        
+  
+        
        
     
         con.addEventListener('drop', function (e) {
@@ -68,19 +74,27 @@ var tr;
             // we can register it manually:
             stage.setPointersPositions(e);
     
-            Konva.Image.fromURL(itemURL, function (image) {
-                layer.add(image);
-                image.position(stage.getPointerPosition());
-                image.width(50);
-                image.height(50);
-                image.draggable(true);
+            // Konva.Image.fromURL(itemURL, function (image) {
+            //     layer.add(image);
+            //     image.position(stage.getPointerPosition());
+            //     image.width(50);
+            //     image.height(50);
+            //     image.draggable(true);
 
-                tr.nodes([image]);
+            //     tr.nodes([image]);
 
-                layer.draw();
+            //     layer.draw();
+
+            var image = new Konva.Image({
+                image: canvas,
+                width: 50,
+                height: 50,
+                draggable: true,
+              });
+              layer.add(image);
 
                 
-            });
+            // });
         });
         layer.add(tr);
         layer.draw();
@@ -220,7 +234,7 @@ var tr;
                 'senderName' : $('#sender_name').val(),
                 'senderEmail' : $('#sender_email').val(),
                 'recipientEmail' : $('#recipient_email').val(),
-                'image_url' : ,
+                'image_url' : image_url,
             },
             
         }
@@ -264,3 +278,13 @@ function fitStageIntoParentContainer() {
     //scaleX = scaleY =Math.min(scaleX,scaleY);
 }
 
+
+function onDrawFrame(ctx, frame) {
+    // update canvas size
+    canvas.width = frame.width;
+    canvas.height = frame.height;
+    // update canvas that we are using for Konva.Image
+    ctx.drawImage(frame.buffer, 0, 0);
+    // redraw the layer
+    layer.draw();
+  }

@@ -4,6 +4,7 @@
   <script src="./js/vendor/freezeframe.js/packages/freezeframe/dist/freezeframe.min.js"></script>
   <script src="js/plugins.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://unpkg.com/gifler@0.1.0/gifler.min.js"></script>
   <script src="js/multi-step.js"></script>
   <script src="js/main.js"></script>
 
