@@ -39,7 +39,9 @@ try {
     </td></tr></table></td></tr></table> <br><table>
     <tr>
         <td width="500" height="100" style="line-height:100px; text-align: center;"> 
-            <a style="background: black !important; color: white !important; padding: 10px 20px !important; text-decoration: none !important;" href="http://toolboxdesign.com.sg/demo/custom-ecard/">SEND YOUR OWN E-CARD</a>
+            <a style="color: black !important; padding: 10px 20px !important; text-decoration: none !important;" href="http://toolboxdesign.com.sg/demo/custom-ecard/">SEND AN ECARD TO SOMEONE SPECIAL !
+
+            </a>
 
         </td>
     </tr>

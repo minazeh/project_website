@@ -5,8 +5,9 @@ var layer;
 var textLayer;
 var messageText;
 var receiverText;
+var senderText;
 var image_url;
-
+var card_template;
 var tr;
 
 (function ($) {
@@ -23,23 +24,9 @@ var tr;
             height: stageHeight,
         });
 
-        // add the selected image from the first section
-        var imageObj = new Image();
-        imageObj.onload = function () {
-            var mainImage = new Konva.Image({
-                x: 0,
-                y: 0,
-                image: imageObj,
-                width: 500,
-                height: 500,
-            });
+        
 
-            // add the shape to the layer
-            layer.add(mainImage);
-            layer.batchDraw();
-        };
-
-        imageObj.src = './template/ecard-template/ecard-template.png';
+        
 
         layer = new Konva.Layer();
         stage.add(layer);
@@ -90,24 +77,34 @@ var tr;
     
         messageText = new Konva.Text({
             x: 35,
-            y: 35,
+            y: 80,
             text:'',
-            fontSize: 25,
+            fontSize: 18,
             fontFamily: 'Helvetica',
             fill: 'black',
         });
 
         receiverText = new Konva.Text({
+            x: 35,
+            y: 35,
+            text:'',
+            fontSize: 18,
+            fontFamily: 'Helvetica',
+            fill: 'black',
+        });
+
+        senderText = new Konva.Text({
             x: 320,
             y: 420,
             text:'',
-            fontSize: 25,
+            fontSize: 18,
             fontFamily: 'Helvetica',
             fill: 'black',
         });
 
         textLayer.add(messageText);
         textLayer.add(receiverText);
+        textLayer.add(senderText);
         stage.add(textLayer);
         
        
@@ -128,8 +125,13 @@ var tr;
 
     });
 
+    $('#sender').keyup(function(){
+        
+        senderText.text( $(this).val() );
+        textLayer.draw();
 
-    
+    });
+
 
     const card_1 = new Freezeframe('.freezeGIF_1', {
         trigger: 'false'
@@ -161,18 +163,55 @@ var tr;
                 card_1.toggle();
                 card_2.stop();
                 card_3.stop();
+                card_template = 1;
                 break;
 
             case 'card-2':
                 card_2.toggle();
                 card_1.stop();
                 card_3.stop();
+                card_template = 2;
                 break;
 
             case 'card-3':
                 card_3.toggle();
                 card_2.stop();
                 card_1.stop();
+                card_template = 3;
+                break;
+
+        }
+
+        console.log( card_template );
+        // add the selected image from the first section
+        var imageObj = new Image();
+        imageObj.onload = function () {
+            var mainImage = new Konva.Image({
+                x: 0,
+                y: 0,
+                image: imageObj,
+                width: 500,
+                height: 500,
+            });
+
+            // add the shape to the layer
+            layer.add(mainImage);
+            layer.batchDraw();
+        };
+
+        switch( card_template ){
+
+            case 1:
+                imageObj.src = './template/ecard-template/ecard-template-1.png';
+                break;
+            case 2:
+                imageObj.src = './template/ecard-template/ecard-template-2.png';
+                break;
+            case 3:
+                imageObj.src = './template/ecard-template/ecard-template-3.png';
+                break;
+            default:
+                imageObj.src = './template/ecard-template/ecard-template-1.png';
                 break;
 
         }
