@@ -220,7 +220,7 @@ var tr;
                 'senderName' : $('#sender_name').val(),
                 'senderEmail' : $('#sender_email').val(),
                 'recipientEmail' : $('#recipient_email').val(),
-                'image_url' : ,
+                'image_url' : image_url,
             },
             
         }
