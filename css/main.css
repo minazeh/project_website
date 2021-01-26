@@ -263,6 +263,13 @@ textarea {
 
 /* THis is my own css code. */
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
 .sticker-slider{
   list-style: none;
   padding-left: 0px;
@@ -275,6 +282,33 @@ textarea {
 
 .sticker-slider .item img{
   max-width: 70px;
+}
+
+.intro-overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/intro-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.intro-overlay .logo-wrapper{
+  text-align: center;
+  margin-top: 100px;
+}
+
+.intro-overlay .text-wrapper{
+  float: right;
+}
+
+.intro-overlay .text-wrapper p{
+  
+  color: white;
+  font-size: 37px;
+  font-weight: 300;
 }
 
 @media only screen and (min-width: 700px) {

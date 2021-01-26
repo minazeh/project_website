@@ -1,4 +1,28 @@
 <?php require './template/header.php'; ?>
+
+<div class="intro-overlay">
+
+    <div class="logo-wrapper">
+
+        <img src="img/toolbox-logo.jpg" alt="">
+
+    </div>
+
+    <div class="text-wrapper">
+    
+        <p>
+            SEND AN AUSPICIOUS<br>CHINESE NEW YEAR COUPLET<br>
+            <small>Customise your own festive greeting and send it to your love ones</small>
+        </p>
+    
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="intro-background"></div>
+
+</div>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-9 col-md-12 col-lg-9 col-xl-9 text-center p-0 mt-3 mb-2">
@@ -34,7 +58,7 @@
 
                                 </div>
 
-                            </div> 
+                            </div>
 
                             <div class="row">
 
@@ -56,13 +80,12 @@
 
                                 </div>
 
-                                    
                             </div>
 
-                        </div> 
+                        </div>
 
                         <input type="button" name="next" class="next action-button" value="Next" />
-    
+
                     </fieldset>
 
                     <fieldset>
@@ -74,7 +97,7 @@
                                 <div class="col-5">
                                     <h2 class="steps">Step 2 of 4</h2>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="row">
 
                                 <div class="col-md-6" id="stage-parent">
@@ -82,14 +105,14 @@
                                     <div id="container"></div>
 
                                 </div>
-                                
+
                                 <div class="col-md-6">
 
                                     <div class="mb-3">
                                         <label for="receiver" class="form-label">Receiver</label>
                                         <input type="text" class="form-control" id="receiver">
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label for="message" class="form-label">Message</label>
                                         <input type="text" class="form-control" id="message">
@@ -102,13 +125,14 @@
 
                                     <h6>Drag and drop to your eCard</h6>
                                     <br>
-                                
-                                    <?php $image = new Image(); $image->show_stickers_in_slider(); ?>
-                                
+
+                                    <?php $image = new Image();
+                                    $image->show_stickers_in_slider(); ?>
+
                                 </div>
 
                             </div>
-                            
+
                             <div class="clearfix"></div>
 
                         </div> <input type="button" name="next" class="next action-button save_canvas" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
@@ -122,7 +146,7 @@
                                 <div class="col-5">
                                     <h2 class="steps">Step 3 of 4</h2>
                                 </div>
-                            </div> 
+                            </div>
 
                             <div class="row">
                                 <div class="col-6">
@@ -131,24 +155,24 @@
 
                                 </div>
                                 <div class="col-6">
-                                    <label class="fieldlabels">Salutation</label> 
+                                    <label class="fieldlabels">Salutation</label>
                                     <select name="salutation" class="form-control" id="salutation">
                                         <option value="Mr">Mr</option>
                                         <option value="Ms">Ms</option>
                                         <option value="Mrs">Mrs</option>
                                     </select>
                                     <br>
-                                    <label class="fieldlabels">Sender Name</label> 
-                                    <input type="text" id="sender_name"  class="form-control" name="sender_name">
-                                    <label class="fieldlabels">Sender Email</label> 
+                                    <label class="fieldlabels">Sender Name</label>
+                                    <input type="text" id="sender_name" class="form-control" name="sender_name">
+                                    <label class="fieldlabels">Sender Email</label>
                                     <input type="email" id="sender_email" class="form-control" name="sender_email">
-                                    <label class="fieldlabels">Recipient Email</label> 
-                                    <input type="email" id="recipient_email"  class="form-control" name="recipient_email">
+                                    <label class="fieldlabels">Recipient Email</label>
+                                    <input type="email" id="recipient_email" class="form-control" name="recipient_email">
                                 </div>
                             </div>
 
-                        </div> 
-                        <input type="button" name="next" class="next action-button submitBtn" value="Submit" /> 
+                        </div>
+                        <input type="button" name="next" class="next action-button submitBtn" value="Submit" />
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     <fieldset>
