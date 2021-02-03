@@ -1,18 +1,22 @@
 /*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
 /* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+
 html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
 }
+
 /*
    * Remove text-shadow in selection highlight:
    * https://twitter.com/miketaylr/status/12228805301
@@ -22,17 +26,21 @@ html {
    *
    * Customize the background color to match your design.
    */
+
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
 }
+
 ::selection {
   background: #b3d4fc;
   text-shadow: none;
 }
+
 /*
    * A better looking default horizontal rule
    */
+
 hr {
   display: block;
   height: 1px;
@@ -41,11 +49,13 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
+
 /*
    * Remove the gap between audio, canvas, iframes,
    * images, videos and the bottom of their containers:
    * https://github.com/h5bp/html5-boilerplate/issues/440
    */
+
 audio,
 canvas,
 iframe,
@@ -54,33 +64,42 @@ svg,
 video {
   vertical-align: middle;
 }
+
 /*
    * Remove default fieldset styles.
    */
+
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
+
 /*
    * Allow only vertical resizing of textareas.
    */
+
 textarea {
   resize: vertical;
 }
+
 /* ==========================================================================
      Author's custom styles
      ========================================================================== */
+
 /* ==========================================================================
      Helper classes
      ========================================================================== */
+
 /*
    * Hide visually and from screen readers
    */
+
 .hidden,
 [hidden] {
   display: none !important;
 }
+
 /*
    * Hide only visually, but have it available for screen readers:
    * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
@@ -89,6 +108,7 @@ textarea {
    *    causes content to wrap 1 word per line:
    *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
    */
+
 .sr-only {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -101,11 +121,13 @@ textarea {
   width: 1px;
   /* 1 */
 }
+
 /*
    * Extends the .sr-only class to allow the element
    * to be focusable when navigated to via the keyboard:
    * https://www.drupal.org/node/897638
    */
+
 .sr-only.focusable:active,
 .sr-only.focusable:focus {
   clip: auto;
@@ -116,12 +138,15 @@ textarea {
   white-space: inherit;
   width: auto;
 }
+
 /*
    * Hide visually and from screen readers, but maintain layout
    */
+
 .invisible {
   visibility: hidden;
 }
+
 /*
    * Clearfix: contain floats
    *
@@ -133,30 +158,40 @@ textarea {
    * 2. The use of `table` rather than `block` is only necessary if using
    *    `:before` to contain the top-margins of child elements.
    */
+
 .clearfix::before,
 .clearfix::after {
   content: " ";
   display: table;
 }
+
 .clearfix::after {
   clear: both;
 }
+
 /* ==========================================================================
      EXAMPLE Media Queries for Responsive Design.
      These examples override the primary ('mobile first') styles.
      Modify as content requires.
      ========================================================================== */
+
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
-@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
+
 /* ==========================================================================
      Print styles.
      Inlined to avoid the additional HTTP request:
      https://www.phpied.com/delay-loading-your-print-css/
      ========================================================================== */
+
 @media print {
   *,
   *::before,
@@ -167,16 +202,20 @@ textarea {
     box-shadow: none !important;
     text-shadow: none !important;
   }
+
   a,
   a:visited {
     text-decoration: underline;
   }
+
   a[href]::after {
     content: " (" attr(href) ")";
   }
+
   abbr[title]::after {
     content: " (" attr(title) ")";
   }
+
   /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
@@ -185,14 +224,17 @@ textarea {
   a[href^="javascript:"]::after {
     content: "";
   }
+
   pre {
     white-space: pre-wrap !important;
   }
+
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
+
   /*
      * Printing Tables:
      * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
@@ -200,72 +242,48 @@ textarea {
   thead {
     display: table-header-group;
   }
+
   tr,
   img {
     page-break-inside: avoid;
   }
+
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
   }
+
   h2,
   h3 {
     page-break-after: avoid;
   }
 }
+
 /* THis is my own css code. */
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v22/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo18E.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v22/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o18E.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v22/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o18E.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v22/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv18E.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v22/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv18E.ttf) format('truetype');
-}
+
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
 body {
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
 }
+
 .sticker-slider {
   list-style: none;
   padding-left: 0px;
 }
+
 .sticker-slider .item {
   display: inline-block;
   margin: 5px;
 }
+
 .sticker-slider .item img {
   max-width: 70px;
 }
+
 .intro-overlay {
   position: absolute;
   width: 100%;
@@ -276,60 +294,75 @@ body {
   z-index: 999;
   overflow: hidden;
 }
+
 .intro-overlay .logo-wrapper {
   text-align: center;
   margin-top: 200px;
 }
+
 .intro-overlay .text-wrapper {
   float: right;
   margin-top: 170px;
   padding-right: 100px;
+
+  p {
+    color: white;
+    font-size: 37px;
+    font-weight: 300;
+    line-height: 41px;
+
+    small {
+      font-size: 18px;
+    }
+  }
+
+  .custom-button {
+    background: #bdd631;
+    color: #da2128;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
+  }
 }
-.intro-overlay .text-wrapper p {
-  color: white;
-  font-size: 37px;
-  font-weight: 300;
-  line-height: 41px;
+
+.gif-selection{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: block;
+    li{
+        list-style: none;
+        display: inline-block;
+
+        img{
+            width: 100%;
+            cursor: pointer;
+        }
+        
+    }
+
+    &:last-child{
+        margin-top: -120px;
+    }
 }
-.intro-overlay .text-wrapper p small {
-  font-size: 18px;
+
+.main-logo-wrapper{
+    img{
+        max-width: 100px;
+    }
 }
-.intro-overlay .text-wrapper .custom-button {
-  background: #bdd631;
-  color: #da2128;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
+
+.btn-green{
+    color: white;
+    background: #bdd631;
+    border-radius: 10px;
 }
-.intro-overlay .text-wrapper .custom-button:hover {
-  color: white;
-}
-.gif-selection {
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  display: block;
-}
-.gif-selection li {
-  list-style: none;
-  display: inline-block;
-}
-.gif-selection li img {
-  width: 100%;
-  cursor: pointer;
-}
-.gif-selection:last-child {
-  margin-top: -120px;
-}
-.main-logo-wrapper img {
-  max-width: 100px;
-}
-.btn-green {
-  color: white;
-  background: #bdd631;
-  border-radius: 10px;
-}
-.form-card {
+
+.form-card{
   margin-top: 40px;
 }

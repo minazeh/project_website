@@ -9,76 +9,69 @@
     </div>
 
     <div class="text-wrapper">
-    
+
         <p>
             SEND AN AUSPICIOUS<br>CHINESE NEW YEAR COUPLET<br>
             <small>Customise your own festive greeting and send it to your love ones</small>
         </p>
-    
+
+        <a href="#" class="custom-button get-started">GET STARTED</a>
+
     </div>
 
     <div class="clearfix"></div>
 
-    <div class="intro-background"></div>
-
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid hidden" id="main-system">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-9 col-md-12 col-lg-9 col-xl-9 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                <h2 id="heading">Toolbox Design E-Card</h2>
+                <div class="main-logo-wrapper">
+
+                    <img src="img/toolbox-logo.jpg" alt="">
+
+                </div>
                 <!-- <p>Customise your own festive greeting card and send it your loved ones!</p> -->
                 <form id="msform">
                     <!-- progressbar -->
                     <ul id="progressbar">
-                        <li class="active" id="account"><strong>Select your eCard</strong></li>
-                        <li id="personal"><strong>Customise</strong></li>
-                        <li id="payment"><strong>Enter recipient details</strong></li>
-                        <li id="confirm"><strong>Confirmation</strong></li>
+                        <li class="active" id="account"><strong>Select A Couplet</strong></li>
+                        <li id="personal"><strong>Customise An Auspicious Message</strong></li>
+                        <li id="payment"><strong>Send Your Blessings</strong></li>
+                        <li id="confirm"><strong>Huat Ah!</strong></li>
                     </ul>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div> <br> <!-- fieldsets -->
+
                     <fieldset>
 
                         <div class="form-card">
 
-                            <div class="row">
+                            <div class="row mt-5">
 
-                                <div class="col-7">
+                                <ul class="gif-selection">
 
-                                    <h2 class="fs-title">Select Your Card</h2>
+                                    <li>
+                                        <img class="gif-item freezeGIF" data-val="card-1" data-status="false" src="./img/card-template-1.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img class="gif-item freezeGIF" data-val="card-2" data-status="false" src="./img/card-template-2.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img class="gif-item freezeGIF" data-val="card-3" data-status="false" src="./img/card-template-3.png" alt="">
+                                    </li>
+                                   
+                                </ul>
 
-                                </div>
+                                <ul class="gif-selection">
 
-                                <div class="col-5">
-
-                                    <h2 class="steps">Step 1 of 4</h2>
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col-md-4">
-
-                                    <img class="freezeGIF freezeGIF_1" data-val="card-1" data-status="false" src="./img/ecard-template-gif-1.gif" alt="">
-
-                                </div>
-
-                                <div class="col-md-4">
-
-                                    <img class="freezeGIF freezeGIF_2" data-val="card-2" src="./img/ecard-template-gif-2.gif" alt="">
-
-                                </div>
-
-                                <div class="col-md-4">
-
-                                    <img class="freezeGIF freezeGIF_3" data-val="card-3" src="./img/ecard-template-gif-3.gif" alt="">
-
-                                </div>
+                                    <li>
+                                        <img class="gif-item freezeGIF" data-val="card-4" data-status="false" src="./img/card-template-4.png" alt="">
+                                    </li>
+                                    <li>
+                                        <img class="gif-item freezeGIF" data-val="card-5" data-status="false" src="./img/card-template-5.png" alt="">
+                                    </li>
+                                   
+                                </ul>
 
                             </div>
 
@@ -92,11 +85,9 @@
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
-                                    <h2 class="fs-title">Customise your eCard</h2>
+                                    <h2 class="fs-title">Customise AN AUSPICIOUS Message</h2>
                                 </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 2 of 4</h2>
-                                </div>
+                                
                             </div>
                             <div class="row">
 
@@ -109,18 +100,18 @@
                                 <div class="col-md-6">
 
                                     <div class="mb-3">
-                                        <label for="receiver" class="form-label">Receiver</label>
-                                        <input type="text" class="form-control" id="receiver">
+                                        <label for="receiver" class="form-label">TO</label>
+                                        <input type="text" placeholder="Recipient Name" class="form-control" id="receiver">
+                                    </div>
+
+                                    <div class="">
+                                        <label for="message" class="form-label">MESSAGE</label>
+                                        <textarea name="message" placeholder="Type Your Auspicious Message" id="message" cols="30" rows="4"></textarea>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="message" class="form-label">Message</label>
-                                        <input type="text" class="form-control" id="message">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="receiver" class="form-label">Sender</label>
-                                        <input type="text" class="form-control" id="sender">
+                                        <label for="receiver" class="form-label">FROM</label>
+                                        <input type="text" placeholder="Your Name" class="form-control" id="sender">
                                     </div>
 
                                     <h6>Drag and drop to your eCard</h6>
@@ -139,21 +130,15 @@
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
-                            <div class="row">
+                            <div class="row justify-content-center">
                                 <div class="col-7">
-                                    <h2 class="fs-title">Enter sender and recipient:</h2>
+                                    <h2 class="fs-title text-center">sender and recipient DETAILS</h2>
                                 </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 3 of 4</h2>
-                                </div>
+                                
                             </div>
 
-                            <div class="row">
-                                <div class="col-6">
-
-                                    <img src="" id="temp_prev" alt="">
-
-                                </div>
+                            <div class="row justify-content-center">
+                                
                                 <div class="col-6">
                                     <label class="fieldlabels">Salutation</label>
                                     <select name="salutation" class="form-control" id="salutation">
