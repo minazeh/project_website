@@ -10,7 +10,7 @@ p {
 }
 #heading {
   text-transform: uppercase;
-  color: #673AB7;
+  color: #673ab7;
   font-weight: normal;
 }
 #msform {
@@ -19,7 +19,7 @@ p {
   margin-top: 20px;
 }
 #msform fieldset {
-  background: white;
+  background: #fff1e2;
   border: 0 none;
   border-radius: 0.5rem;
   box-sizing: border-box;
@@ -42,8 +42,8 @@ p {
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
-  color: #2C3E50;
-  background-color: #ECEFF1;
+  color: #2c3e50;
+  background-color: #eceff1;
   font-size: 16px;
   letter-spacing: 1px;
   margin-bottom: 20px;
@@ -53,12 +53,12 @@ p {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #673AB7;
+  border: 1px solid #673ab7;
   outline-width: 0;
 }
 #msform .action-button {
   width: 100px;
-  background: #673AB7;
+  background: #673ab7;
   font-weight: bold;
   border: 0 none;
   border-radius: 0px;
@@ -69,18 +69,18 @@ p {
   color: white;
   background: #bdd631;
   border-radius: 10px;
-  font-family: 'Quicksand', 'Sans-serif';
+  font-family: "Quicksand", "Sans-serif";
   text-transform: uppercase;
   position: relative;
   z-index: 9;
 }
 #msform .action-button:hover,
 #msform .action-button:focus {
-  background-color: #DA2128;
+  background-color: #da2128;
 }
 #msform .action-button-previous {
   width: 100px;
-  background: #673AB7;
+  background: #673ab7;
   font-weight: bold;
   border: 0 none;
   border-radius: 0px;
@@ -91,14 +91,14 @@ p {
   color: white;
   background: #bdd631;
   border-radius: 10px;
-  font-family: 'Quicksand', 'Sans-serif';
+  font-family: "Quicksand", "Sans-serif";
   text-transform: uppercase;
   position: relative;
   z-index: 9;
 }
 #msform .action-button-previous:hover,
 #msform .action-button-previous:focus {
-  background-color: #DA2128;
+  background-color: #da2128;
 }
 .card {
   z-index: 0;
@@ -114,7 +114,7 @@ p {
   text-transform: uppercase;
 }
 .purple-text {
-  color: #673AB7;
+  color: #673ab7;
   font-weight: normal;
 }
 .steps {
@@ -135,71 +135,63 @@ p {
   padding: 0px 100px;
 }
 #progressbar .active {
-  color: #DA2128;
-  font-weight: 400;
-}
-#progressbar .active:before {
-  background-image: url('../img/diamond-red.png') !important;
+  color: #000;
+  font-weight: 700;
 }
 #progressbar li {
   list-style-type: none;
   font-size: 15px;
+  line-height: 18px;
   width: 25%;
   float: left;
   position: relative;
   font-weight: 400;
 }
 #progressbar #account:before {
-  background-image: url('../img/diamond-red.png');
+  background-image: url("../img/progress-1.png");
   background-position: center;
   background-repeat: no-repeat;
-  content: '1';
+  content: " ";
 }
 #progressbar #personal:before {
-  background-image: url('../img/diamond-green.png');
+  background-image: url("../img/progress-1.png");
   background-position: center;
   background-repeat: no-repeat;
-  content: '2';
+  content: " ";
 }
 #progressbar #personal:before:has(.active) {
-  background-image: url('../img/diamond-red.png');
+  background-image: url("../img/diamond-red.png");
 }
 #progressbar #payment:before {
-  background-image: url('../img/diamond-green.png');
+  background-image: url("../img/diamond-green.png");
   background-position: center;
   background-repeat: no-repeat;
-  content: '3';
+  content: " ";
 }
 #progressbar #confirm:before {
-  background-image: url('../img/diamond-green.png');
+  background-image: url("../img/diamond-green.png");
   background-position: center;
   background-repeat: no-repeat;
-  content: '4';
+  content: " ";
 }
 #progressbar li:before {
-  width: 50px;
-  height: 50px;
-  line-height: 45px;
+  width: 45px;
+  height: 84px;
+  line-height: 84px;
   display: block;
   font-size: 20px;
-  color: #ffffff;
-  background: white;
   border-radius: 50%;
   margin: 0 auto 10px auto;
   padding: 2px;
 }
 #progressbar li:after {
-  content: '';
+  content: "";
   width: 100%;
   height: 2px;
-  background: lightgray;
   position: absolute;
   left: 0;
   top: 25px;
   z-index: -1;
-}
-#progressbar li.active:before {
-  background: white;
 }
 #progressbar li:first-child:after {
   width: 50%;
@@ -209,13 +201,13 @@ p {
   width: 50%;
 }
 #progressbar li:after {
-  background: #BDD631;
+  background: #bdd631;
 }
 .progress {
   height: 20px;
 }
 .progress-bar {
-  background-color: #673AB7;
+  background-color: #673ab7;
 }
 .fit-image {
   width: 100%;
