@@ -47,9 +47,6 @@ var tr;
 
         tr = new Konva.Transformer();
 
-
-
-
         con.addEventListener('drop', function (e) {
             e.preventDefault();
             // now we need to find pointer position
@@ -78,31 +75,41 @@ var tr;
         // text from form to canvas
         textLayer = new Konva.Layer();
 
-        messageText = new Konva.Text({
-            x: 35,
-            y: 80,
+        receiverText = new Konva.Text({
+            x: 220,
+            y: 110,
             text: '',
             fontSize: 18,
-            fontFamily: 'Helvetica',
-            fill: 'black',
+            fontFamily: 'Quicksand',
+            fill: '#DA2128',
+            draggable: true,
+            fontStyle: 'bold',
+            align: 'center',
         });
 
-        receiverText = new Konva.Text({
-            x: 35,
-            y: 35,
+        messageText = new Konva.Text({
+            x: 220,
+            y: 140,
             text: '',
             fontSize: 18,
-            fontFamily: 'Helvetica',
-            fill: 'black',
+            fontFamily: 'Quicksand',
+            fill: '#DA2128',
+            draggable: true,
+            align: 'center',
         });
+
+        
 
         senderText = new Konva.Text({
-            x: 320,
-            y: 420,
+            x: 220,
+            y: 370,
             text: '',
             fontSize: 18,
-            fontFamily: 'Helvetica',
-            fill: 'black',
+            fontFamily: 'Quicksand',
+            fill: '#DA2128',
+            draggable: true,
+            fontStyle: 'bold',
+            align: 'center',
         });
 
         textLayer.add(messageText);
@@ -225,6 +232,9 @@ var tr;
 
         }
 
+        $('.flip-holder').removeClass('flip-hover');
+        $(this).parent().addClass('flip-hover');
+
     });
 
     $('.action-button').click(function () {
@@ -279,6 +289,16 @@ var tr;
 
         });
 
+
+    });
+
+    $('.preview_card').click(function(){
+
+        $('.submitBtn').removeClass('hidden');
+        $(this).addClass('hidden');
+
+        $('.tempprev').removeClass('hidden');
+        $('.rec_field').addClass('hidden');
 
     });
 

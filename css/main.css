@@ -314,6 +314,29 @@ body {
 .gif-selection li {
   list-style: none;
   display: inline-block;
+  min-width: 350px;
+  min-height: 345px;
+}
+.gif-selection li .flip-holder {
+  position: relative;
+  display: block;
+}
+.gif-selection li .flip-holder .front,
+.gif-selection li .flip-holder .back {
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.6s linear;
+  float: left;
+  position: absolute;
+  width: 341px;
+  height: 344px;
+  left: 0px;
+}
+.gif-selection li .flip-holder .front {
+  transform: perspective(600px) rotateY(0deg);
+}
+.gif-selection li .flip-holder .back {
+  transform: perspective(600px) rotateY(180deg);
 }
 .gif-selection li img {
   width: 100%;
@@ -321,6 +344,12 @@ body {
 }
 .gif-selection:last-child {
   margin-top: -120px;
+}
+.flip-hover .front {
+  transform: perspective(600px) rotateY(-180deg) !important;
+}
+.flip-hover .back {
+  transform: perspective(600px) rotateY(0deg) !important;
 }
 .main-logo-wrapper img {
   max-width: 100px;
@@ -332,4 +361,73 @@ body {
 }
 .form-card {
   margin-top: 40px;
+}
+#temp_prev {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.end-title {
+  text-align: center !important;
+  color: #da2128 !important;
+}
+.share-icons {
+  text-align: center;
+}
+.share-icons ul {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+}
+.share-icons ul li {
+  list-style: none;
+  color: #ffffff;
+  background: #808285;
+  display: inline-block;
+  border-radius: 100px;
+  margin-right: 15px;
+}
+.share-icons ul li:last-child {
+  margin-right: 0px;
+}
+.share-icons ul li a {
+  color: #ffffff;
+  font-size: 35px;
+  display: block;
+  min-width: 52px;
+  width: 100%;
+  text-align: center;
+  border-radius: 100%;
+  border: 0px solid black;
+}
+.share-icons ul li a:hover {
+  color: #808285;
+  background: #ffffff;
+}
+.last-prev {
+  float: none !important;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.resetBtn {
+  width: 100px;
+  background: #da2128;
+  font-weight: bold;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: -60px 0px 10px 5px;
+  color: white;
+  border-radius: 10px;
+  font-family: 'Quicksand', 'Sans-serif';
+  text-transform: uppercase;
+  position: relative;
+  z-index: 9;
+  text-decoration: none;
+}
+.resetBtn:hover,
+.resetBtn:focus {
+  color: white;
+  background: #bdd631;
 }

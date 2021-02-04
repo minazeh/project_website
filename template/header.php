@@ -28,5 +28,3 @@
 <script src="https://unpkg.com/konva@7.2.2/konva.min.js"></script>
 <!-- Require all the classes on the library. -->
 <?php require 'lib/init.php'; ?>
-
-   

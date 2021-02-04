@@ -50,27 +50,41 @@
 
                                 <ul class="gif-selection">
 
-                                    <li>
-                                        <img class="gif-item freezeGIF" data-val="card-1" data-status="false" src="./img/card-template-1.png" alt="">
+                                    <li class="flip-item">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-1" data-status="false" src="./img/card-template-1.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-1.png" class="back" alt="">
+                                        </div>
                                     </li>
-                                    <li>
-                                        <img class="gif-item freezeGIF" data-val="card-2" data-status="false" src="./img/card-template-2.png" alt="">
+                                    <li  class="flip-item">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-2" data-status="false" src="./img/card-template-2.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-2.png" class="back" alt="">
+                                        </div>
                                     </li>
-                                    <li>
-                                        <img class="gif-item freezeGIF" data-val="card-3" data-status="false" src="./img/card-template-3.png" alt="">
+                                    <li  class="flip-item">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-3" data-status="false" src="./img/card-template-3.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-3.png" class="back" alt="">
+                                        </div>
                                     </li>
-                                   
                                 </ul>
 
                                 <ul class="gif-selection">
 
-                                    <li>
-                                        <img class="gif-item freezeGIF" data-val="card-4" data-status="false" src="./img/card-template-4.png" alt="">
+                                    <li  class="flip-item">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-4" data-status="false" src="./img/card-template-4.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-4.png" class="back" alt="">
+                                        </div>
                                     </li>
-                                    <li>
-                                        <img class="gif-item freezeGIF" data-val="card-5" data-status="false" src="./img/card-template-5.png" alt="">
+                                    <li  class="flip-item">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-5" data-status="false" src="./img/card-template-5.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-5.png" class="back" alt="">
+                                        </div>
                                     </li>
-                                   
+                                    
                                 </ul>
 
                             </div>
@@ -100,17 +114,17 @@
                                 <div class="col-md-6">
 
                                     <div class="mb-3">
-                                        <label for="receiver" class="form-label">TO</label>
+                                        <label for="receiver" class="form-label">TO (Draggable)</label>
                                         <input type="text" placeholder="Recipient Name" class="form-control" id="receiver">
                                     </div>
 
                                     <div class="">
-                                        <label for="message" class="form-label">MESSAGE</label>
+                                        <label for="message" class="form-label">MESSAGE (Draggable)</label>
                                         <textarea name="message" placeholder="Type Your Auspicious Message" id="message" cols="30" rows="4"></textarea>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="receiver" class="form-label">FROM</label>
+                                        <label for="receiver" class="form-label">FROM (Draggable)</label>
                                         <input type="text" placeholder="Your Name" class="form-control" id="sender">
                                     </div>
 
@@ -126,6 +140,9 @@
 
                             <div class="clearfix"></div>
 
+                            <br>
+                            <br>
+
                         </div> <input type="button" name="next" class="next action-button save_canvas" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     <fieldset>
@@ -138,8 +155,14 @@
                             </div>
 
                             <div class="row justify-content-center">
+
+                                <div class="col-6 hidden tempprev">
+
+                                    <img src="" id="temp_prev" alt="">
+
+                                </div>
                                 
-                                <div class="col-6">
+                                <div class="col-6 rec_field">
                                     <label class="fieldlabels">Salutation</label>
                                     <select name="salutation" class="form-control" id="salutation">
                                         <option value="Mr">Mr</option>
@@ -157,26 +180,45 @@
                             </div>
 
                         </div>
-                        <input type="button" name="next" class="next action-button submitBtn" value="Submit" />
+                        <input type="button" name="next" class="next action-button hidden submitBtn" value="Send" />
+                        <input type="button" name="next" class="action-button preview_card " value="Next" />
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
-                                <div class="col-7">
-                                    <h2 class="fs-title">Confirmation:</h2>
+                                <div class="col-12">
+                                    <h2 class="fs-title end-title">HOW WOULD YOU LIKE TO SEND YOUR BLESSINGS?:</h2>
                                 </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 4 of 4</h2>
-                                </div>
-                            </div> <br><br>
-                            <h2 class="purple-text text-center"><strong></strong></h2> <br>
+                            </div>
+                            <br><br>
                             <div class="row justify-content-center">
-                                <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
-                            </div> <br><br>
-                            <div class="row justify-content-center">
-                                <div class="col-7 text-center">
-                                    <h5 class="purple-text text-center">You Have Successfully Sent Your eCard!</h5>
+                                <div class="col-12 share-icons"> 
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-sms"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-envelope"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-link"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                        </li>
+
+                                    </ul>
+
+                                    <a href="#" class="action-button-previous last-prev">PREVIOUS</a>
+                                    <a href="#" class="resetBtn">SEND ANOTHER COUPLET</a>
+
                                 </div>
                             </div>
                         </div>
