@@ -240,10 +240,10 @@ textarea {
 body {
   font-family: Helvetica, sans-serif;
   font-weight: 300;
-  background: #FFF1E2 !important;
+  background: #fff1e2 !important;
 }
 body .card {
-  background-color: #FFF1E2;
+  background-color: #fff1e2;
 }
 .sticker-slider {
   list-style: none;
@@ -283,7 +283,7 @@ body .card {
   margin: 0 auto;
   font-family: "Times New Roman", Times, serif;
 }
-.intro-overlay .text-wrapper .custom-button {
+.custom-button {
   background: black;
   color: white;
   padding: 10px 20px;
@@ -297,7 +297,7 @@ body .card {
   font-family: "Helvetica", sans-serif;
   font-size: 15px;
 }
-.intro-overlay .text-wrapper .custom-button:hover {
+.custom-button:hover {
   color: black;
   background: white;
   border: 1px solid black;
@@ -313,30 +313,32 @@ body .card {
   display: inline-block;
   min-width: 350px;
   min-height: 345px;
-}
-.gif-selection li .flip-holder {
   position: relative;
-  display: block;
 }
-.gif-selection li .flip-holder .front,
-.gif-selection li .flip-holder .back {
-  overflow: hidden;
-  backface-visibility: hidden;
-  transition: transform 0.6s linear;
-  float: left;
+.gif-selection li .rays {
   position: absolute;
-  width: 341px;
-  height: 344px;
-  left: 0px;
+  top: 6px;
+  left: 83px;
+  z-index: 1;
+  animation-name: spinning;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  /* linear | ease | ease-in | ease-out | ease-in-out */
+  animation-timing-function: linear;
 }
-.gif-selection li .flip-holder .front {
-  transform: perspective(600px) rotateY(0deg);
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.gif-selection li .flip-holder .back {
-  transform: perspective(600px) rotateY(180deg);
+.gif-selection li .gif-item {
+  position: relative;
+  z-index: 2;
 }
 .gif-selection li img {
-  width: 100%;
   cursor: pointer;
 }
 .gif-selection:last-child {
@@ -360,9 +362,8 @@ body .card {
   margin-top: 40px;
 }
 #temp_prev {
+  text-align: left;
   display: block;
-  margin: 0 auto;
-  text-align: center;
 }
 .end-title {
   text-align: center !important;
@@ -378,55 +379,75 @@ body .card {
 }
 .share-icons ul li {
   list-style: none;
-  color: #ffffff;
-  background: #808285;
   display: inline-block;
-  border-radius: 100px;
   margin-right: 15px;
 }
 .share-icons ul li:last-child {
   margin-right: 0px;
 }
-.share-icons ul li a {
-  color: #ffffff;
-  font-size: 35px;
+.share-icons ul li span {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
   display: block;
-  min-width: 52px;
-  width: 100%;
+  margin-top: 10px;
+}
+.share-icons ul li a {
+  color: #fff1e2;
+  font-size: 25px;
   text-align: center;
   border-radius: 100%;
   border: 0px solid black;
+  background: black;
+  width: 60px;
+  height: 57px;
+  vertical-align: middle;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: block;
+  margin: 0 auto;
 }
 .share-icons ul li a:hover {
-  color: #808285;
-  background: #ffffff;
+  color: black;
+  background: #fff1e2;
 }
 .last-prev {
+  background: black !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin: 0 auto !important;
+  max-width: 300px !important;
+  font-family: "Helvetica", sans-serif !important;
+  font-size: 15px !important;
   float: none !important;
-  text-decoration: none;
-  padding: 10px 20px;
+  width: 122px !important;
+  border-radius: 0px !important;
+}
+.last-prev:hover {
+  color: black !important;
+  background: white !important;
+  border: 1px solid black !important;
 }
 .resetBtn {
-  width: 100px;
-  background: #da2128;
-  font-weight: bold;
-  border: 0 none;
-  border-radius: 0px;
-  cursor: pointer;
+  background: black;
+  color: white;
   padding: 10px 20px;
-  margin: -60px 0px 10px 5px;
-  color: white;
-  border-radius: 10px;
-  font-family: "Quicksand", "Sans-serif";
-  text-transform: uppercase;
-  position: relative;
-  z-index: 9;
+  font-weight: 700;
   text-decoration: none;
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 305px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 15px;
 }
-.resetBtn:hover,
-.resetBtn:focus {
-  color: white;
-  background: #bdd631;
+.resetBtn:hover {
+  color: black;
+  background: white;
+  border: 1px solid black;
 }
 .nav-link {
   margin-right: 40px;

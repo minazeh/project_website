@@ -34,16 +34,24 @@ p {
 #msform fieldset:not(:first-of-type) {
   display: none;
 }
+.form-label,
+.fieldlabels {
+  font-family: 'Times New Roman', Times, serif;
+  color: black !important;
+  font-weight: bold;
+  font-size: 17px;
+  text-transform: uppercase;
+}
 #msform input,
 #msform textarea {
   padding: 8px 15px 8px 15px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 0px;
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
   color: #2c3e50;
-  background-color: #eceff1;
+  background-color: white;
   font-size: 16px;
   letter-spacing: 1px;
   margin-bottom: 20px;
@@ -57,26 +65,24 @@ p {
   outline-width: 0;
 }
 #msform .action-button {
-  width: 100px;
-  background: #673ab7;
-  font-weight: bold;
-  border: 0 none;
-  border-radius: 0px;
-  cursor: pointer;
-  padding: 10px 5px;
-  margin: -60px 0px 10px 5px;
-  float: right;
+  background: black;
   color: white;
-  background: #bdd631;
-  border-radius: 10px;
-  font-family: "Quicksand", "Sans-serif";
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  max-width: 210px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 15px;
   text-transform: uppercase;
-  position: relative;
-  z-index: 9;
 }
 #msform .action-button:hover,
 #msform .action-button:focus {
-  background-color: #da2128;
+  color: black;
+  background: white;
+  border: 1px solid black;
 }
 #msform .action-button-previous {
   width: 100px;
@@ -106,12 +112,14 @@ p {
   position: relative;
 }
 .fs-title {
-  font-size: 25px;
-  color: #808285;
+  font-size: 30px;
+  color: black;
   margin-bottom: 15px;
   font-weight: normal;
   text-align: left;
   text-transform: uppercase;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
 }
 .purple-text {
   color: #673ab7;
@@ -147,6 +155,9 @@ p {
   position: relative;
   font-weight: 400;
 }
+#progressbar li strong {
+  color: black;
+}
 #progressbar #account:before {
   background-image: url("../img/progress-1.png");
   background-position: center;
@@ -154,22 +165,19 @@ p {
   content: " ";
 }
 #progressbar #personal:before {
-  background-image: url("../img/progress-1.png");
+  background-image: url("../img/progress-2.png");
   background-position: center;
   background-repeat: no-repeat;
   content: " ";
 }
-#progressbar #personal:before:has(.active) {
-  background-image: url("../img/diamond-red.png");
-}
 #progressbar #payment:before {
-  background-image: url("../img/diamond-green.png");
+  background-image: url("../img/progress-3.png");
   background-position: center;
   background-repeat: no-repeat;
   content: " ";
 }
 #progressbar #confirm:before {
-  background-image: url("../img/diamond-green.png");
+  background-image: url("../img/progress-4.png");
   background-position: center;
   background-repeat: no-repeat;
   content: " ";
@@ -189,19 +197,22 @@ p {
   width: 100%;
   height: 2px;
   position: absolute;
-  left: 0;
-  top: 25px;
+  left: -15px;
+  top: 35px;
   z-index: -1;
 }
 #progressbar li:first-child:after {
   width: 50%;
   left: 50%;
+  background-image: none;
 }
 #progressbar li:last-child:after {
   width: 50%;
 }
 #progressbar li:after {
-  background: #bdd631;
+  background-image: url("../img/arrow-progress.png");
+  height: 84px !important;
+  background-repeat: no-repeat;
 }
 .progress {
   height: 20px;

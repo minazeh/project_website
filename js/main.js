@@ -3,12 +3,64 @@ var stageHeight = 500;
 var stage;
 var layer;
 var textLayer;
+var fortuneLayer;
 var messageText;
 var receiverText;
 var senderText;
 var image_url;
 var card_template;
 var tr;
+var numset = [0,1,2,3,4,5,6,7,8,9];
+var luckNum;
+var luckyNumber;
+var fortuneText;
+var fortuneVar;
+//shuffle the sequence and take the first 4 values 
+var luckNum = shuffle(numset).slice(0,4);
+luckNum = luckNum.toString().replace(/,/g, "");
+
+
+const loveMessage = [
+    'One Who Admires You Greatly Is Hidden Before Your Eyes.',
+    'The Time Is Right To Make New Friends.',
+    'Love, Because It Is The Only True Adventure.',
+    'You Won’t Know Until You Try.',
+    'Never Lose The Ability To Find Beauty In Ordinary Things.',
+];
+
+const careerMessage = [
+    'It’s Not The Destination, It’s The Journey.',
+    'Bide Your Time, For Success Is Near.',
+    'Someone Has Googled You Recently.',
+    'Be Prepared To Accept An Exciting Opportunity.',
+    'A Ship In Harbor Is Safe, But That’s Not Why Ships Are Built.',
+];
+
+const wealthMessage = [
+    'Every Person Is The Architect Of His Or Her Own Fortune.',
+    'Your Luck Will Take A Turn For The Better.	',
+    'An Unexpected Event Will Soon Bring You Financial Rewards.',
+    'New Ideas Could Be Profitable.',
+    'You Will Prosper In The New Year.',
+];
+
+const familyMessage = [
+    'You Will Received Good News From A Loved One Soon.',
+    'When We Have Each Other, We Have Everything.',
+    'Patience Is Your Alley At The Moment. Don’t Worry!',
+    'Don’t Worry About Money. The Best Things In Life Are Free.',
+    'To Avoid Criticism, Do Nothing, Say Nothing.',
+];
+
+const healthMessage = [
+    'You Will Enjoy Good Health.',
+    'Now Would Be A Good Time To Take Up A New Sport. ',
+    'Love Your Body Because You Only Have One.',
+    'Invest In Your Health. Eat A Balanced Diet!',
+    'Self-care Is How You Take Your Power Back.	',
+];
+
+var random;
 
 (function ($) {
 
@@ -32,6 +84,7 @@ var tr;
         });
 
         layer = new Konva.Layer();
+        fortuneLayer = new Konva.Layer();
         stage.add(layer);
 
         // what is url of dragging element?
@@ -76,46 +129,80 @@ var tr;
         textLayer = new Konva.Layer();
 
         receiverText = new Konva.Text({
-            x: 220,
-            y: 110,
+            x:70,
+            y: 65,
             text: '',
             fontSize: 18,
-            fontFamily: 'Quicksand',
-            fill: '#DA2128',
-            draggable: true,
+            fontFamily: 'Times New Roman',
+            fill: 'black',
             fontStyle: 'bold',
-            align: 'center',
         });
 
         messageText = new Konva.Text({
-            x: 220,
-            y: 140,
+            x:70,
+            y: 105,
             text: '',
             fontSize: 18,
-            fontFamily: 'Quicksand',
-            fill: '#DA2128',
-            draggable: true,
-            align: 'center',
+            fontFamily: 'Helvetica',
+            fill: 'black',
         });
 
         
 
         senderText = new Konva.Text({
-            x: 220,
-            y: 370,
+            x: 320,
+            y: 350,
             text: '',
             fontSize: 18,
-            fontFamily: 'Quicksand',
-            fill: '#DA2128',
+            fontFamily: 'Times New Roman',
+            fill: 'black',
             draggable: true,
+            fontStyle: 'bold',
+            align: 'right',
+        });
+
+        luckyNumber = new Konva.Text({
+            x: stage.width() / 2,
+            y: 420,
+            text: 'LUCKY No: ' + luckNum,
+            fontSize: 13,
+            fontFamily: 'Times New Roman',
+            fill: 'black',
             fontStyle: 'bold',
             align: 'center',
         });
 
+        fortuneText = new Konva.Text({
+            x: stage.width() / 2,
+            y: 400,
+            text: fortuneVar,
+            fontSize: 13,
+            fontFamily: 'Times New Roman',
+            fill: 'black',
+            fontStyle: 'bold',
+            align: 'center',
+        });
+        
+
+
+
+        fortuneLayer.add(fortuneText);
+
+       
+
+        
+        luckyNumber.offsetX(luckyNumber.width() / 2);
+
+
         textLayer.add(messageText);
         textLayer.add(receiverText);
         textLayer.add(senderText);
+        textLayer.add(luckyNumber);
         stage.add(textLayer);
+        
+
+        stage.add(fortuneLayer);
+        
 
 
 
@@ -171,25 +258,40 @@ var tr;
 
             case 'card-1':
                 card_template = 1;
+                random = Math.floor(Math.random() * loveMessage.length);
+                fortuneVar = loveMessage[random];
+                console.log(fortuneVar);
                 break;
 
             case 'card-2':
                 card_template = 2;
+                random = Math.floor(Math.random() * careerMessage.length);
+                fortuneVar = careerMessage[random];
                 break;
 
             case 'card-3':
                 card_template = 3;
+                random = Math.floor(Math.random() * wealthMessage.length);
+                fortuneVar = wealthMessage[random];
                 break;
 
             case 'card-4':
                 card_template = 4;
+                random = Math.floor(Math.random() * familyMessage.length);
+                fortuneVar = familyMessage[random];
                 break;
 
             case 'card-5':
                 card_template = 5;
+                random = Math.floor(Math.random() * healthMessage.length);
+                fortuneVar = healthMessage[random];
                 break;
 
         }
+        fortuneText.text(fortuneVar);
+        fortuneText.offsetX(fortuneText.width() / 2);
+        fortuneLayer.draw();
+
 
         console.log(card_template);
         // add the selected image from the first section
@@ -232,8 +334,16 @@ var tr;
 
         }
 
-        $('.flip-holder').removeClass('flip-hover');
-        $(this).parent().addClass('flip-hover');
+        $('.rays').each(function(){
+
+            if( $(this).hasClass('hidden') ){
+            } else {
+                $(this).addClass('hidden');
+            }
+
+        });
+
+        $(this).parent().children('.rays').removeClass('hidden');
 
     });
 
@@ -302,6 +412,32 @@ var tr;
 
     });
 
+    $('.nextBtn').click(function(){
+
+        $('.nextTrigger').click();
+
+    });
+
+    $('.prevBtn').click(function(){
+
+        $('.prevTrigger').click();
+
+    });
+
+    $('.nextBtn1').click(function(){
+
+        $('.nextTrigger1').click();
+
+    });
+
+    $('.prevBtn1').click(function(){
+
+        $('.prevTrigger1').click();
+
+    });
+
+    
+
 })(jQuery);
 
 
@@ -331,4 +467,17 @@ function fitStageIntoParentContainer() {
     // uncomment to enable "uniform stretch"
     //scaleX = scaleY =Math.min(scaleX,scaleY);
 }
+
+
+//first we need a shuffle function
+function shuffle(array){
+    for(var i = array.length, j, tmp; i--; ){
+        j = 0|(Math.random() * i);
+        tmp = array[j];
+        array[j] = array[i];
+        array[i] = tmp;
+    }
+    return array;
+}
+
 
