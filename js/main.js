@@ -10,13 +10,13 @@ var senderText;
 var image_url;
 var card_template;
 var tr;
-var numset = [0,1,2,3,4,5,6,7,8,9];
+var numset = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var luckNum;
 var luckyNumber;
 var fortuneText;
 var fortuneVar;
 //shuffle the sequence and take the first 4 values 
-var luckNum = shuffle(numset).slice(0,4);
+var luckNum = shuffle(numset).slice(0, 4);
 luckNum = luckNum.toString().replace(/,/g, "");
 
 
@@ -108,19 +108,29 @@ var random;
             // we can register it manually:
             stage.setPointersPositions(e);
 
-            Konva.Image.fromURL(itemURL, function (image) {
-                layer.add(image);
-                image.position(stage.getPointerPosition());
-                image.width(50);
-                image.height(50);
-                image.draggable(true);
+            var canvas = document.createElement('canvas');
 
-                tr.nodes([image]);
-
+            function onDrawFrame(ctx, frame) {
+                // update canvas size
+                canvas.width = frame.width;
+                canvas.height = frame.height;
+                // update canvas that we are using for Konva.Image
+                ctx.drawImage(frame.buffer, 0, 0);
+                // redraw the layer
                 layer.draw();
+            }
 
+            gifler(itemURL).frames(canvas, onDrawFrame);
+
+            var image = new Konva.Image({
+                image: canvas,
+                position: stage.getPointerPosition(),
+                width: 65,
+                height: 65,
+                draggable: true,
 
             });
+            layer.add(image);
         });
         layer.add(tr);
         layer.draw();
@@ -129,7 +139,7 @@ var random;
         textLayer = new Konva.Layer();
 
         receiverText = new Konva.Text({
-            x:70,
+            x: 70,
             y: 65,
             text: '',
             fontSize: 18,
@@ -139,7 +149,7 @@ var random;
         });
 
         messageText = new Konva.Text({
-            x:70,
+            x: 70,
             y: 105,
             text: '',
             fontSize: 18,
@@ -147,7 +157,7 @@ var random;
             fill: 'black',
         });
 
-        
+
 
         senderText = new Konva.Text({
             x: 320,
@@ -182,15 +192,15 @@ var random;
             fontStyle: 'bold',
             align: 'center',
         });
-        
+
 
 
 
         fortuneLayer.add(fortuneText);
 
-       
 
-        
+
+
         luckyNumber.offsetX(luckyNumber.width() / 2);
 
 
@@ -199,10 +209,10 @@ var random;
         textLayer.add(senderText);
         textLayer.add(luckyNumber);
         stage.add(textLayer);
-        
+
 
         stage.add(fortuneLayer);
-        
+
 
 
 
@@ -334,9 +344,9 @@ var random;
 
         }
 
-        $('.rays').each(function(){
+        $('.rays').each(function () {
 
-            if( $(this).hasClass('hidden') ){
+            if ($(this).hasClass('hidden')) {
             } else {
                 $(this).addClass('hidden');
             }
@@ -402,7 +412,7 @@ var random;
 
     });
 
-    $('.preview_card').click(function(){
+    $('.preview_card').click(function () {
 
         $('.submitBtn').removeClass('hidden');
         $(this).addClass('hidden');
@@ -412,31 +422,31 @@ var random;
 
     });
 
-    $('.nextBtn').click(function(){
+    $('.nextBtn').click(function () {
 
         $('.nextTrigger').click();
 
     });
 
-    $('.prevBtn').click(function(){
+    $('.prevBtn').click(function () {
 
         $('.prevTrigger').click();
 
     });
 
-    $('.nextBtn1').click(function(){
+    $('.nextBtn1').click(function () {
 
         $('.nextTrigger1').click();
 
     });
 
-    $('.prevBtn1').click(function(){
+    $('.prevBtn1').click(function () {
 
         $('.prevTrigger1').click();
 
     });
 
-    
+
 
 })(jQuery);
 
@@ -470,14 +480,13 @@ function fitStageIntoParentContainer() {
 
 
 //first we need a shuffle function
-function shuffle(array){
-    for(var i = array.length, j, tmp; i--; ){
-        j = 0|(Math.random() * i);
+function shuffle(array) {
+    for (var i = array.length, j, tmp; i--;) {
+        j = 0 | (Math.random() * i);
         tmp = array[j];
         array[j] = array[i];
         array[i] = tmp;
     }
     return array;
 }
-
 

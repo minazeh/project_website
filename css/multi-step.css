@@ -81,7 +81,7 @@ p {
 #msform .action-button:hover,
 #msform .action-button:focus {
   color: black;
-  background: white;
+  background: #FFF1E2;
   border: 1px solid black;
 }
 #msform .action-button-previous {

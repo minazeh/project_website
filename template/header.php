@@ -26,5 +26,6 @@
 
 <body>
 <script src="https://unpkg.com/konva@7.2.2/konva.min.js"></script>
+<script src="https://unpkg.com/gifler@0.1.0/gifler.min.js"></script>
 <!-- Require all the classes on the library. -->
 <?php require 'lib/init.php'; ?>
