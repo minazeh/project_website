@@ -424,7 +424,54 @@ var random;
 
     $('.nextBtn').click(function () {
 
-        $('.nextTrigger').click();
+        console.log('start getting images');
+
+        var frameTimer = 1;
+        var fileName = generateFileName();
+        var data = new FormData();
+        data.append('fileName', fileName);
+
+        var captureFrame = setInterval(function () {
+            imgData = stage.toDataURL();
+            data.append('imgData' + frameTimer, imgData);
+            // localStorage.setItem("imgData" + frameTimer, imgData);
+            // var dataImage = localStorage.getItem('imgData' + frameTimer);
+            frameTimer++;
+
+            if (frameTimer == 16) {
+
+                clearInterval(captureFrame);
+
+                try {
+
+                    data.append('fileName', fileName);
+
+                    $.ajax({
+                        url: 'saveimage.php',
+                        type: 'POST',
+                        data: data,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        complete: function (response) {
+                            console.log(response);
+                        },
+                        error: function (error) {
+                            console.log('second-error');
+                            console.log(error);
+                        }
+                    });
+                } catch (error) {
+                    console.log('Error catch second save image -- 1');
+                    console.log(error);
+                }
+            }
+
+        }, 15);
+
+
+
+        //$('.nextTrigger').click();
 
     });
 
