@@ -16,13 +16,13 @@
     imagecreatefrompng($_POST['imgData15']),
 );
 
-$durations = array(15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,);
+$durations = array(5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,);
 
 include_once 'gifcreator.php';
 use GifCreator\GifCreator;
 $gc = new GifCreator();
 $gc->create($frames, $durations, 0);
 $gifBinary = $gc->getGif();
-file_put_contents('animated_picture.gif', $gifBinary);
+file_put_contents('img/temp/'. $_POST['fileName'] .'.gif', $gifBinary);
 
 ?>

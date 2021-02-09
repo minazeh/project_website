@@ -42,12 +42,13 @@ p {
   display: none;
 }
 
-.form-label, .fieldlabels{
-    font-family: 'Times New Roman', Times, serif;
-    color: black !important;
-    font-weight: bold;
-    font-size: 17px;
-    text-transform: uppercase;
+.form-label,
+.fieldlabels {
+  font-family: "Times New Roman", Times, serif;
+  color: black !important;
+  font-weight: bold;
+  font-size: 17px;
+  text-transform: uppercase;
 }
 
 #msform input,
@@ -59,10 +60,17 @@ p {
   width: 100%;
   box-sizing: border-box;
   color: #2c3e50;
-  background-color: white;
+  background-color:#fff1e2;
   font-size: 16px;
   letter-spacing: 1px;
   margin-bottom: 20px;
+
+  &::placeholder{
+   
+    color: black;
+    opacity: 1;
+
+  }
 }
 
 #msform input:focus,
@@ -70,31 +78,31 @@ p {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #673ab7;
+  border: 1px solid #000;
   outline-width: 0;
+  
 }
 
 #msform .action-button {
-    background: black;
-    color: white;
-    padding: 10px 20px;
-    font-weight: 700;
-    text-decoration: none;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    max-width: 210px;
-    font-family: "Helvetica", sans-serif;
-    font-size: 15px;
-    text-transform: uppercase;
-    &:hover, &:focus{
-        color: black;
-        background: #FFF1E2;
-        border: 1px solid black;
-    }
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  max-width: 210px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  &:hover,
+  &:focus {
+    color: black;
+    background: #fff1e2;
+    border: 1px solid black;
+  }
 }
-
-
 
 #msform .action-button-previous {
   width: 100px;
@@ -134,7 +142,7 @@ p {
   font-weight: normal;
   text-align: left;
   text-transform: uppercase;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
 }
 
@@ -165,20 +173,21 @@ p {
 
 #progressbar .active {
   color: #000;
-  font-weight: 700;
+  font-weight: bold !important;
 }
 
 #progressbar li {
   list-style-type: none;
   font-size: 15px;
-  line-height: 18px;;
+  line-height: 18px;
   width: 25%;
   float: left;
   position: relative;
   font-weight: 400;
 
-  strong{
-      color: black;
+  strong {
+    color: black;
+    font-weight: normal;
   }
 }
 
@@ -190,14 +199,14 @@ p {
 }
 
 #progressbar #personal:before {
-    background-image: url("../img/progress-2.png");
+  background-image: url("../img/progress-2.png");
   background-position: center;
   background-repeat: no-repeat;
   content: " ";
 }
 
 #progressbar #payment:before {
-  background-image:  url("../img/progress-3.png");
+  background-image: url("../img/progress-3.png");
   background-position: center;
   background-repeat: no-repeat;
   content: " ";
@@ -229,7 +238,6 @@ p {
   left: -15px;
   top: 35px;
   z-index: -1;
-
 }
 
 #progressbar {
@@ -247,9 +255,9 @@ p {
       }
     }
     &:after {
-        background-image: url("../img/arrow-progress.png");
-        height: 84px !important;
-        background-repeat: no-repeat;
+      background-image: url("../img/arrow-progress.png");
+      height: 84px !important;
+      background-repeat: no-repeat;
     }
   }
 }
@@ -265,4 +273,41 @@ p {
 .fit-image {
   width: 100%;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 990px) {
+
+  #msform{
+    margin-top: 0px;
+  }
+  #progressbar {
+    padding: 0px 10px;
+
+    li {
+      font-size: 10px;
+      line-height: 14px;
+
+      &:before {
+        width: 35px;
+        height: 50px;
+      }
+
+      &:after{
+        top: 20px;
+      }
+    }
+  }
+
+  #progressbar #account:before {
+    background-size: contain;
+  }
+  #progressbar #personal:before {
+    background-size: contain;
+  }
+  #progressbar #payment:before {
+    background-size: contain;
+  }
+  #progressbar #confirm:before {
+    background-size: contain;
+  }
 }

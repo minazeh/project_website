@@ -36,7 +36,7 @@ p {
 }
 .form-label,
 .fieldlabels {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   color: black !important;
   font-weight: bold;
   font-size: 17px;
@@ -51,17 +51,22 @@ p {
   width: 100%;
   box-sizing: border-box;
   color: #2c3e50;
-  background-color: white;
+  background-color: #fff1e2;
   font-size: 16px;
   letter-spacing: 1px;
   margin-bottom: 20px;
+}
+#msform input::placeholder,
+#msform textarea::placeholder {
+  color: black;
+  opacity: 1;
 }
 #msform input:focus,
 #msform textarea:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #673ab7;
+  border: 1px solid #000;
   outline-width: 0;
 }
 #msform .action-button {
@@ -81,7 +86,7 @@ p {
 #msform .action-button:hover,
 #msform .action-button:focus {
   color: black;
-  background: #FFF1E2;
+  background: #fff1e2;
   border: 1px solid black;
 }
 #msform .action-button-previous {
@@ -118,7 +123,7 @@ p {
   font-weight: normal;
   text-align: left;
   text-transform: uppercase;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
 }
 .purple-text {
@@ -144,7 +149,7 @@ p {
 }
 #progressbar .active {
   color: #000;
-  font-weight: 700;
+  font-weight: bold !important;
 }
 #progressbar li {
   list-style-type: none;
@@ -157,6 +162,7 @@ p {
 }
 #progressbar li strong {
   color: black;
+  font-weight: normal;
 }
 #progressbar #account:before {
   background-image: url("../img/progress-1.png");
@@ -223,4 +229,35 @@ p {
 .fit-image {
   width: 100%;
   object-fit: cover;
+}
+@media only screen and (max-width: 990px) {
+  #msform {
+    margin-top: 0px;
+  }
+  #progressbar {
+    padding: 0px 10px;
+  }
+  #progressbar li {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  #progressbar li:before {
+    width: 35px;
+    height: 50px;
+  }
+  #progressbar li:after {
+    top: 20px;
+  }
+  #progressbar #account:before {
+    background-size: contain;
+  }
+  #progressbar #personal:before {
+    background-size: contain;
+  }
+  #progressbar #payment:before {
+    background-size: contain;
+  }
+  #progressbar #confirm:before {
+    background-size: contain;
+  }
 }

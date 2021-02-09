@@ -13,6 +13,7 @@ $(document).ready(function () {
         next_fs = $(this).parent().next();
 
         //Add Class Active
+        $("#progressbar li").removeClass('active');
         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
         //show the next fieldset
@@ -41,6 +42,7 @@ $(document).ready(function () {
 
         //Remove class active
         $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
         //show the previous fieldset
         previous_fs.show();

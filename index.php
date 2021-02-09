@@ -1,8 +1,8 @@
 <?php require './template/header.php'; ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-darkest">
     <div class="container">
-        <a class="navbar-brand m-2" href="#">
+        <a class="navbar-brand m-2" href="javascript:void(0);">
             <img src="img/toolart-logo.png" alt="" width="217" height="44" class="d-inline-block align-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@
 
     <div class="logo-wrapper">
 
-        <img src="img/fortune-cookie.png" alt="">
+        <img src="img/landing-gif.gif" alt="">
 
     </div>
 
@@ -43,7 +43,27 @@
             Send A Personalised Auspicious Greeting & A Fortune Cookie!
         </p>
 
-        <a href="#" class="custom-button get-started">LET’S GET CRACKING</a>
+        <a href="javascript:void(0);" class="custom-button get-started">LET’S GET CRACKING</a>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+</div>
+
+<div class="intro-overlay hidden animation-processing" style="top: 0;">
+
+    <div class="logo-wrapper">
+
+        <img src="img/fortune-cookie.png" alt="">
+
+    </div>
+
+    <div class="text-wrapper">
+
+        <p>
+            Processing your eCard please wait...
+        </p>
 
     </div>
 
@@ -59,10 +79,10 @@
                 <form id="msform">
                     <!-- progressbar -->
                     <ul id="progressbar">
-                        <li class="active" id="account"><strong>Pick A<br>Fortune Cookie</strong></li>
-                        <li id="personal"><strong>Customise<br>Your Greeting</strong></li>
-                        <li id="payment"><strong>Receiver<br>& Sender Details</strong></li>
-                        <li id="confirm"><strong>Share<br>Your Fortune</strong></li>
+                        <li class="active" id="account" style="color: black;">Pick A<br>Fortune Cookie</li>
+                        <li id="personal" style="color: black;">Customise<br>Your Greeting</li>
+                        <li id="payment" style="color: black;">Receiver<br>& Sender Details</li>
+                        <li id="confirm" style="color: black;">Share<br>Your Fortune</li>
                     </ul>
 
                     <fieldset>
@@ -117,20 +137,33 @@
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
-                                <div class="col-7">
+                                <div class="col-md-7 col-12">
                                     <h2 class="fs-title" style="text-align:left;">CUSTOMISE YOUR GREETING</h2>
                                 </div>
 
                             </div>
                             <div class="row">
 
-                                <div class="col-md-6" id="stage-parent">
+                                <div class="col-md-6">
 
-                                    <div id="container"></div>
+                                    <div id="stage-parent">
+                                        <div id="container"></div>
+                                    </div>
 
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-12">
+
+                                    <div class="d-lg-none d-md-none d-xs-block">
+
+                                        <span class="form-label">Tap and drag stickers on your Card</span>
+
+                                        <br>
+
+                                        <?php $image = new Image();
+                                        $image->show_stickers_in_slider_click(); ?>
+
+                                    </div>
 
                                     <div class="mb-3">
                                         <label for="receiver" class="form-label">TO</label>
@@ -147,12 +180,17 @@
                                         <input type="text" placeholder="Your Name" class="form-control" id="sender">
                                     </div>
 
-                                    <span class="form-label">Drag and drop to your Card</span>
+                                    <div class="d-none d-md-block d-lg-block">
 
-                                    <br>
+                                        <span class="form-label">Drag and drop stickers to your Card</span>
 
-                                    <?php $image = new Image();
-                                    $image->show_stickers_in_slider(); ?>
+                                        <br>
+
+                                        <?php $image = new Image();
+                                        $image->show_stickers_in_slider(); ?>
+
+                                    </div>
+
 
                                     <a href="javascript:void(0);" class="custom-button prevBtn" style="float:left; margin-top: 0;">PREVIOUS</a>
                                     <a href="javascript:void(0);" class="custom-button  nextBtn" style="float:left; margin-left: 15px; min-width: 130px; margin-top: 0;">NEXT</a>
@@ -173,21 +211,30 @@
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
-                                <div class="col-7">
+                                <div class="col-md-7 col-12">
                                     <h2 class="fs-title" style="text-align:left;">RECEIVER & SENDER DETAILS</h2>
                                 </div>
 
                             </div>
 
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center tempprev">
 
-                                <div class="col-6  tempprev">
+                                <div class="col-md-6 col-12  ">
+
 
                                     <img src="" id="temp_prev" alt="">
 
                                 </div>
 
-                                <div class="col-6 rec_field">
+                                <div class="col-md-6 col-12 rec_field">
+
+                                    <div class="alert alert-fields alert-danger hidden" role="alert">
+                                        <strong>All fields are required.</strong>
+                                    </div>
+                                    <div class="alert alert-email alert-danger hidden" role="alert">
+                                        <strong>You have entered an invalid email address.</strong>
+                                    </div>
+
                                     <label class="fieldlabels">Recipient Name</label>
                                     <input type="text" id="recipient_name" class="form-control" name="recipient_name">
                                     <label class="fieldlabels">Recipient Email</label>
@@ -212,7 +259,7 @@
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-12">
-                                    <h2 class="fs-title" style="text-transform: capitalize;"><strong>How Would You Like To Send Your<br>Fortune Cookie?</strong></h2>
+                                    <h2 class="fs-title" style="text-transform: capitalize;"><strong>How Would You Like To Send Your Fortune Cookie?</strong></h2>
                                 </div>
                             </div>
                             <br><br>
@@ -220,34 +267,33 @@
                                 <div class="col-12 share-icons">
                                     <ul>
                                         <li>
-                                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                            <a href="#" id="whatsappLink"><i class="fab fa-whatsapp"></i></a>
                                             <span>Whatsapp</span>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-sms"></i></a>
+                                            <a href="#" id="smsLink"><i class="fas fa-sms"></i></a>
                                             <span>Message</span>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-envelope"></i></a>
+                                            <a href="#" id="mailLink"><i class="fas fa-envelope"></i></a>
                                             <span>Email</span>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-link"></i></a>
+                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-link"></i></a>
                                             <span>Link</span>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#" id="facebookLink"><i class="fab fa-facebook-f"></i></a>
                                             <span>Facebook</span>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#" id="twitterLink"><i class="fab fa-twitter"></i></a>
                                             <span>Twitter</span>
                                         </li>
 
                                     </ul>
 
-                                    <a href="#" class="action-button-previous last-prev">PREVIOUS</a>
-                                    <a href="#" class="resetBtn">SEND ANOTHER FORTUNE COOKIE</a>
+                                    <a href="javascript:void(0);" class="resetBtn">SEND ANOTHER FORTUNE COOKIE</a>
 
                                 </div>
                             </div>
@@ -260,4 +306,72 @@
 </div>
 
 
-<?php require './template/footer.php'; ?>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Copy Link</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" id="urlLink">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark" onclick="myFunctionz()">Copy Link</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Save your eCard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p style="color: black;">You are about to save your eCard. Would you like to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Get Back</button>
+                <button type="button" class="btn-save btn btn-dark">Proceed</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunctionz() {
+        /* Get the text field */
+        var copyText = document.getElementById("urlLink");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
+    }
+</script>
+
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="./js/vendor/freezeframe.js/packages/freezeframe/dist/freezeframe.min.js"></script>
+<script src="js/plugins.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/multi-step.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+
+</html>

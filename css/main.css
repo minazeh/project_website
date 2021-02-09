@@ -265,13 +265,38 @@ body .card {
   z-index: 999;
   overflow: hidden;
 }
+.intro-overlay .viewer {
+  margin-top: 20px !important;
+}
 .intro-overlay .logo-wrapper {
   text-align: center;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .intro-overlay .text-wrapper {
   color: #000;
-  margin-top: 50px;
+  margin-top: 0px;
+}
+.intro-overlay .text-wrapper .small {
+  font-size: 15px;
+  font-family: "Helvetica", sans-serif;
+  text-align: center;
+  margin-top: 200px;
+  display: block;
+}
+.intro-overlay .text-wrapper .fortune-text {
+  font-size: 20px;
+  font-family: "Helvetica", sans-serif;
+  text-align: center;
+  margin-top: 20px;
+  display: block;
+}
+.intro-overlay .text-wrapper .name {
+  font-size: 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.intro-overlay .text-wrapper .sender-name {
+  font-size: 24px !important;
 }
 .intro-overlay .text-wrapper p {
   color: black;
@@ -300,7 +325,7 @@ body .card {
 }
 .custom-button:hover {
   color: black;
-  background: #FFF1E2;
+  background: #fff1e2;
   border: 1px solid black;
 }
 .gif-selection {
@@ -312,7 +337,7 @@ body .card {
 .gif-selection li {
   list-style: none;
   display: inline-block;
-  min-width: 350px;
+  min-width: 315px;
   min-height: 345px;
   position: relative;
 }
@@ -362,9 +387,26 @@ body .card {
 .form-card {
   margin-top: 40px;
 }
+.tempprev {
+  position: relative;
+}
+.tempprev .loader-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff1e2;
+  border: 1px solid black;
+}
+.tempprev .loader-screen p {
+  text-align: center;
+  display: block;
+  line-height: 30;
+}
 #temp_prev {
   text-align: left;
   display: block;
+  max-width: 650px;
+  width: 100%;
 }
 .end-title {
   text-align: center !important;
@@ -431,7 +473,7 @@ body .card {
 }
 .last-prev:hover {
   color: black !important;
-  background: #FFF1E2 !important;
+  background: #fff1e2 !important;
   border: 1px solid black !important;
 }
 .resetBtn {
@@ -448,7 +490,7 @@ body .card {
 }
 .resetBtn:hover {
   color: black;
-  background: #FFF1E2;
+  background: #fff1e2;
   border: 1px solid black;
 }
 .nav-link {
@@ -464,4 +506,101 @@ body .card {
   position: absolute;
   top: 43px;
   margin-left: -40px;
+}
+.viewer-gif-wrapper {
+  display: block;
+  margin-top: 100px;
+  position: relative;
+}
+.viewer-gif-wrapper img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.viewer-gif-wrapper .play-video-button {
+  width: 48%;
+  display: inline-block;
+  text-align: center;
+  max-width: 1000px !important;
+  margin-top: 25px !important;
+  margin-right: 15px;
+}
+.viewer-gif-wrapper .play-video-button:last-child {
+  margin-right: 0px;
+}
+.bg-darkest {
+  background-color: #000 !important;
+}
+.no-scroll {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+@media only screen and (max-width: 990px) {
+  .intro-overlay .logo-wrapper {
+    margin-top: 25px;
+  }
+  .intro-overlay .text-wrapper p {
+    width: 100%;
+    font-size: 30px;
+    line-height: 34px;
+    padding-left: 55px;
+    padding-right: 55px;
+    margin-top: 25px;
+  }
+  .intro-overlay .text-wrapper .small {
+    margin-top: 50px;
+  }
+  .gif-selection li {
+    min-width: 120px;
+    min-height: 0px;
+    max-width: 170px;
+    width: 100%;
+  }
+  .gif-selection li .gif-item {
+    position: relative;
+    z-index: 2;
+    max-width: 150px;
+    margin-left: 15px;
+    top: 20px;
+  }
+  .gif-selection li .rays {
+    left: 28px;
+    top: 25px;
+    max-width: 120px;
+  }
+  .gif-selection:last-child {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+  .konvajs-content canvas {
+    padding-bottom: 20px !important;
+  }
+  .row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .rec_field {
+    margin-top: 30px;
+  }
+  .sticker-slider .item {
+    margin: 3px;
+  }
+  .share-icons ul li {
+    margin-right: 0px;
+    margin: 10px;
+  }
+  .share-icons ul li:last-child {
+    margin-right: 10px;
+  }
+  .viewer-gif-wrapper .play-video-button {
+    width: 100%;
+    margin-top: 18px !important;
+    text-transform: uppercase;
+  }
+}
+video {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
 }

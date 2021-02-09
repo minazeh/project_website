@@ -1,6 +1,6 @@
 var stageWidth = 500;
 var stageHeight = 500;
-var stage;
+
 var layer;
 var textLayer;
 var fortuneLayer;
@@ -15,6 +15,8 @@ var luckNum;
 var luckyNumber;
 var fortuneText;
 var fortuneVar;
+var imageType;
+
 //shuffle the sequence and take the first 4 values 
 var luckNum = shuffle(numset).slice(0, 4);
 luckNum = luckNum.toString().replace(/,/g, "");
@@ -62,36 +64,91 @@ const healthMessage = [
 
 var random;
 
+var stage = new Konva.Stage({
+    container: 'container',
+    width: stageWidth,
+    height: stageHeight,
+});
+
+function fitStageIntoParentContainer() {
+    var container = document.querySelector('#stage-parent');
+
+    // now we need to fit stage into parent
+    var containerWidth = container.offsetWidth;
+    // to do this we need to scale the stage
+    var scale = containerWidth / stageWidth;
+
+    stage.width(stageWidth * scale);
+    stage.height(stageHeight * scale);
+    stage.scale({ x: scale, y: scale });
+    stage.draw();
+}
+
+fitStageIntoParentContainer();
+// adapt the stage on any window resize
+window.addEventListener('resize', fitStageIntoParentContainer);
+
 (function ($) {
 
     $('.get-started').click(function () {
         $('#main-system').removeClass('hidden');
         $('#main-system').hide();
         $('.intro-overlay').fadeOut();
+        console.log('thisi s clicked');
         setTimeout(function () {
             $('#main-system').fadeIn();
         }, 500)
     });
 
+
+    $('.draggable-item').click(function () {
+
+        var itemURLs = $(this).attr('src');
+
+        stage.setPointersPositions();
+
+        var canvas = document.createElement('canvas');
+
+        function onDrawFrame(ctx, frame) {
+            // update canvas size
+            canvas.width = frame.width;
+            canvas.height = frame.height;
+            // update canvas that we are using for Konva.Image
+            ctx.drawImage(frame.buffer, 0, 0);
+            // redraw the layer
+            layer.draw();
+        }
+
+        gifler(itemURLs).frames(canvas, onDrawFrame);
+
+        var image = new Konva.Image({
+            image: canvas,
+            x: 0,
+            y: 0,
+            width: 65,
+            height: 65,
+            draggable: true,
+
+        });
+        layer.add(image);
+
+    });
+
+
     $(document).ready(function () {
 
         fitStageIntoParentContainer();
-
-        stage = new Konva.Stage({
-            container: 'container',
-            width: stageWidth,
-            height: stageHeight,
-        });
 
         layer = new Konva.Layer();
         fortuneLayer = new Konva.Layer();
         stage.add(layer);
 
         // what is url of dragging element?
-        var itemURL = '';
+        var itemURLz = '';
         document.getElementById('drag-items').addEventListener('dragstart', function (e) {
-            itemURL = e.target.src;
+            itemURLz = e.target.src;
         });
+
 
         var con = stage.container();
         con.addEventListener('dragover', function (e) {
@@ -102,10 +159,7 @@ var random;
 
         con.addEventListener('drop', function (e) {
             e.preventDefault();
-            // now we need to find pointer position
-            // we can't use stage.getPointerPosition() here, because that event
-            // is not registered by Konva.Stage
-            // we can register it manually:
+
             stage.setPointersPositions(e);
 
             var canvas = document.createElement('canvas');
@@ -120,7 +174,7 @@ var random;
                 layer.draw();
             }
 
-            gifler(itemURL).frames(canvas, onDrawFrame);
+            gifler(itemURLz).frames(canvas, onDrawFrame);
 
             var image = new Konva.Image({
                 image: canvas,
@@ -157,8 +211,6 @@ var random;
             fill: 'black',
         });
 
-
-
         senderText = new Konva.Text({
             x: 320,
             y: 350,
@@ -172,7 +224,7 @@ var random;
         });
 
         luckyNumber = new Konva.Text({
-            x: stage.width() / 2,
+            x: stageWidth / 2,
             y: 420,
             text: 'LUCKY No: ' + luckNum,
             fontSize: 13,
@@ -183,7 +235,7 @@ var random;
         });
 
         fortuneText = new Konva.Text({
-            x: stage.width() / 2,
+            x: stageWidth / 2,
             y: 400,
             text: fortuneVar,
             fontSize: 13,
@@ -193,28 +245,17 @@ var random;
             align: 'center',
         });
 
-
-
-
         fortuneLayer.add(fortuneText);
 
-
-
-
         luckyNumber.offsetX(luckyNumber.width() / 2);
-
 
         textLayer.add(messageText);
         textLayer.add(receiverText);
         textLayer.add(senderText);
         textLayer.add(luckyNumber);
+
         stage.add(textLayer);
-
-
         stage.add(fortuneLayer);
-
-
-
 
     }); // end document ready function
 
@@ -240,26 +281,6 @@ var random;
     });
 
 
-    // const card_1 = new Freezeframe('.freezeGIF_1', {
-    //     trigger: 'false'
-    // });
-    // const card_2 = new Freezeframe('.freezeGIF_2', {
-    //     trigger: 'false'
-    // });
-    // const card_3 = new Freezeframe('.freezeGIF_3', {
-    //     trigger: 'false'
-    // });
-
-    // $(document).ready(function () {
-
-    //     card_1.stop(); // stop animation 1
-    //     card_2.stop(); // stop animation 2
-    //     card_3.stop(); // stop animation 3
-
-    //     //create canvas with image
-
-    // });
-
     $('.freezeGIF').click(function () {
 
         data_val = $(this).attr('data-val');
@@ -270,6 +291,7 @@ var random;
                 card_template = 1;
                 random = Math.floor(Math.random() * loveMessage.length);
                 fortuneVar = loveMessage[random];
+                imageType = 1;
                 console.log(fortuneVar);
                 break;
 
@@ -277,31 +299,35 @@ var random;
                 card_template = 2;
                 random = Math.floor(Math.random() * careerMessage.length);
                 fortuneVar = careerMessage[random];
+                imageType = 2;
                 break;
 
             case 'card-3':
                 card_template = 3;
                 random = Math.floor(Math.random() * wealthMessage.length);
                 fortuneVar = wealthMessage[random];
+                imageType = 3;
                 break;
 
             case 'card-4':
                 card_template = 4;
                 random = Math.floor(Math.random() * familyMessage.length);
                 fortuneVar = familyMessage[random];
+                imageType = 4;
                 break;
 
             case 'card-5':
                 card_template = 5;
                 random = Math.floor(Math.random() * healthMessage.length);
                 fortuneVar = healthMessage[random];
+                imageType = 5;
                 break;
 
         }
+
         fortuneText.text(fortuneVar);
         fortuneText.offsetX(fortuneText.width() / 2);
         fortuneLayer.draw();
-
 
         console.log(card_template);
         // add the selected image from the first section
@@ -363,51 +389,70 @@ var random;
             fitStageIntoParentContainer();
         }, 500);
 
-
     });
 
-    $('.save_canvas').click(function () {
-
-        var fileName = generateFileName();
-
-        var settings = {
-
-            'url': 'testSave.php',
-            'type': 'post',
-            'data': {
-                'fileData': stage.toDataURL(),
-                'fileName': fileName
-            },
-
-        }
-
-        $.ajax(settings).done(function (response) {
-            image_url = 'img/temp/' + fileName + '.png';
-            $('#temp_prev').attr('src', 'img/temp/' + fileName + '.png');
-        });
-
-    });
 
     $('.submitBtn').click(function (e) {
 
-        var settings = {
 
-            'url': 'ajax.sendemail.php',
-            'type': 'post',
-            'data': {
-                'senderName': $('#sender_name').val(),
-                'senderEmail': $('#sender_email').val(),
-                'recipientEmail': $('#recipient_email').val(),
-                'image_url': image_url,
-            },
 
+        var data = new FormData();
+        var perm_id = generateFileName();
+
+        data.append('perm_id', perm_id);
+        data.append('image_url', image_url);
+        data.append('image_type', imageType);
+        data.append('recipient_name', $('#recipient_name').val());
+        data.append('recipient_email', $('#recipient_email').val());
+        data.append('sender_name', $('#sender_name').val());
+        data.append('sender_email', $('#sender_email').val());
+
+        try {
+
+            $.ajax({
+                url: 'ajax.savetodb.php',
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                beforeSend: function () {
+                    console.log('Start saving to the database');
+                    document.body.scrollTop = document.documentElement.scrollTop = 0;
+                    $('.animation-processing').removeClass('hidden');
+                    $('body').addClass('no-scroll');
+                },
+                complete: function (response) {
+
+                    setTimeout(function () {
+
+                        console.log('Data saved to the database');
+                        $('#urlLink').val('https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+                        $('#whatsappLink').attr('href', 'https://api.whatsapp.com/send?text=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+                        $('#facebookLink').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+                        $('#mailLink').attr('href', ' mailto:?body=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+                        $('#twitterLink').attr('href', 'https://twitter.com/intent/tweet?url=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+                        $('#smsLink').attr('href', 'sms:?&body=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+
+
+                        $('.animation-processing').addClass('hidden');
+                        $('body').removeClass('no-scroll');
+
+                    }, 2000);
+
+                    console.log(response);
+
+                },
+                error: function (error) {
+                    console.log('second-error');
+                    console.log(error);
+                }
+            });
+        } catch (error) {
+            console.log('Error catch second save image -- 1');
+            console.log(error);
         }
 
-        $.ajax(settings).done(function (response) {
-
-            console.log(response);
-
-        });
 
 
     });
@@ -432,7 +477,7 @@ var random;
         data.append('fileName', fileName);
 
         var captureFrame = setInterval(function () {
-            imgData = stage.toDataURL();
+            imgData = stage.toDataURL({ pixelRatio: 2 });
             data.append('imgData' + frameTimer, imgData);
             // localStorage.setItem("imgData" + frameTimer, imgData);
             // var dataImage = localStorage.getItem('imgData' + frameTimer);
@@ -453,8 +498,25 @@ var random;
                         cache: false,
                         contentType: false,
                         processData: false,
+                        beforeSend: function () {
+                            document.body.scrollTop = document.documentElement.scrollTop = 0;
+                            $('.animation-processing').removeClass('hidden');
+                            $('body').addClass('no-scroll');
+                        },
                         complete: function (response) {
-                            console.log(response);
+
+                            image_url = 'img/temp/' + fileName + '.gif';
+                            $('#temp_prev').attr('src', 'img/temp/' + fileName + '.gif');
+                            $('.nextTrigger').click();
+
+                            $('#temp_prev').on('load', function () {
+                                $('.animation-processing').addClass('hidden');
+                                $('body').removeClass('no-scroll');
+                                console.log("image loaded correctly");
+                            }).on('error', function () {
+                                console.log("error loading image");
+                            });
+
                         },
                         error: function (error) {
                             console.log('second-error');
@@ -470,28 +532,71 @@ var random;
         }, 15);
 
 
-
-        //$('.nextTrigger').click();
-
     });
 
     $('.prevBtn').click(function () {
 
         $('.prevTrigger').click();
+        fitStageIntoParentContainer();
 
     });
 
     $('.nextBtn1').click(function () {
 
-        $('.nextTrigger1').click();
+        var rec_name = $('#recipient_name').val();
+        var rec_email = $('#recipient_email').val();
+        var sender_name = $('#sender_name').val();
+        var sender_email = $('#sender_email').val();
+
+        if (rec_name.length === 0 || rec_email.length === 0 || sender_name.length === 0 || sender_email.length === 0) {
+
+            $('.alert-fields').removeClass('hidden');
+
+            return false;
+
+        } else {
+
+            if ($('.alert-fields').hasClass('hidden')) {
+
+            } else {
+                $('.alert-fields').addClass('hidden');
+            }
+
+            if (validateEmail(rec_email) && validateEmail(sender_email)) {
+
+                $('#staticBackdrop').modal('show');
+
+            } else {
+
+                $('.alert-email').removeClass('hidden');
+
+                return false;
+            }
+
+
+
+        }
+
+    });
+
+    $('.btn-save').click(function () {
+
+        $('#staticBackdrop').modal('hide');
+
+        $('.submitBtn').click();
 
     });
 
     $('.prevBtn1').click(function () {
 
         $('.prevTrigger1').click();
+        fitStageIntoParentContainer();
 
     });
+
+    $('.resetBtn').click(function () {
+        location.reload();
+    })
 
 
 
@@ -507,24 +612,6 @@ function generateFileName() {
 
 
 
-// scaling canvas
-function fitStageIntoParentContainer() {
-    var container = document.querySelector('#stage-parent');
-
-    // now we need to fit stage into parent
-    var containerWidth = window.innerWidth;
-    // to do this we need to scale the stage
-    var scaleX = containerWidth / stageWidth;
-
-    // now we need to fit stage into parent
-    var containerHeight = window.innerHeight;
-    // to do this we need to scale the stage
-    var scaleY = containerHeight / stageHeight;
-    console.log(containerWidth + " x " + containerHeight);
-    // uncomment to enable "uniform stretch"
-    //scaleX = scaleY =Math.min(scaleX,scaleY);
-}
-
 
 //first we need a shuffle function
 function shuffle(array) {
@@ -537,3 +624,8 @@ function shuffle(array) {
     return array;
 }
 
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
