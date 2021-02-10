@@ -76,7 +76,7 @@
                 <div class="gif-image-wrapper ">
 
                     <video id="play_vid" width="520" height="520" playsinline>
-                        <source src="img/e-1.mp4" type="video/mp4">
+                        <source src="img/e-<?php echo $data->get_data($_GET['perm_id'], 'image_type'); ?>.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
 
