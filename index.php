@@ -64,6 +64,7 @@
         <p>
             Processing your eCard please wait...
         </p>
+        <div class="loader-dots"></div>
 
     </div>
 
@@ -167,7 +168,7 @@
 
                                     <div class="mb-3">
                                         <label for="receiver" class="form-label">TO</label>
-                                        <input type="text" placeholder="Recipient Name" class="form-control" id="receiver">
+                                        <input type="text" placeholder="Receiver's Name" class="form-control" id="receiver">
                                     </div>
 
                                     <div class="">
@@ -177,7 +178,7 @@
 
                                     <div class="mb-3">
                                         <label for="receiver" class="form-label">FROM</label>
-                                        <input type="text" placeholder="Your Name" class="form-control" id="sender">
+                                        <input type="text" placeholder="Sender's Name" class="form-control" id="sender">
                                     </div>
 
                                     <div class="d-none d-md-block d-lg-block">
@@ -235,15 +236,17 @@
                                         <strong>You have entered an invalid email address.</strong>
                                     </div>
 
-                                    <label class="fieldlabels">Recipient Name</label>
-                                    <input type="text" id="recipient_name" class="form-control" name="recipient_name">
-                                    <label class="fieldlabels">Recipient Email</label>
-                                    <input type="email" id="recipient_email" class="form-control" name="recipient_email">
-                                    <br>
-                                    <label class="fieldlabels">Sender Name</label>
+                                    <label class="fieldlabels">Sender's Name*</label>
                                     <input type="text" id="sender_name" class="form-control" name="sender_name">
-                                    <label class="fieldlabels">Sender Email</label>
+                                    <label class="fieldlabels">Sender's Email*</label>
                                     <input type="email" id="sender_email" class="form-control" name="sender_email">
+                                    <br>
+
+                                    <label class="fieldlabels">Receiver's Name*</label>
+                                    <input type="text" id="recipient_name" class="form-control" name="recipient_name">
+                                    <p style="color: black;">Fill in receiver’s email address for ecard sent via email.</p>
+                                    <label class="fieldlabels">Receiver's Email</label>
+                                    <input type="email" id="recipient_email" class="form-control" name="recipient_email">
                                     <br><br>
                                     <a href="javascript:void(0);" class="custom-button prevBtn1" style="float:left; margin-top: 0;">PREVIOUS</a>
                                     <a href="javascript:void(0);" class="custom-button  nextBtn1" style="float:left; margin-left: 15px; min-width: 130px; margin-top: 0;">NEXT</a>

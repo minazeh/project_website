@@ -430,7 +430,8 @@ window.addEventListener('resize', fitStageIntoParentContainer);
                         $('#urlLink').val('https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
                         $('#whatsappLink').attr('href', 'https://api.whatsapp.com/send?text=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
                         $('#facebookLink').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
-                        $('#mailLink').attr('href', ' mailto:?body=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+
+                        $('#mailLink').attr('href', ' mailto:' + $('#recipient_email').val() +'?body=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
                         $('#twitterLink').attr('href', 'https://twitter.com/intent/tweet?url=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
                         $('#smsLink').attr('href', 'sms:?&body=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
 
@@ -548,7 +549,7 @@ window.addEventListener('resize', fitStageIntoParentContainer);
         var sender_name = $('#sender_name').val();
         var sender_email = $('#sender_email').val();
 
-        if (rec_name.length === 0 || rec_email.length === 0 || sender_name.length === 0 || sender_email.length === 0) {
+        if (rec_name.length === 0 || sender_name.length === 0 || sender_email.length === 0) {
 
             $('.alert-fields').removeClass('hidden');
 
@@ -562,7 +563,7 @@ window.addEventListener('resize', fitStageIntoParentContainer);
                 $('.alert-fields').addClass('hidden');
             }
 
-            if (validateEmail(rec_email) && validateEmail(sender_email)) {
+            if ( validateEmail(sender_email) ) {
 
                 $('#staticBackdrop').modal('show');
 
