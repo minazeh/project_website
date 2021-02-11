@@ -108,6 +108,8 @@
 <script src="js/plugins.js"></script>
 
 <script>
+
+
     (function($) {
 
         $('.get-started').click(function() {
@@ -137,6 +139,7 @@
         });
 
     })(jQuery);
+    
 </script>
 
 </body>
