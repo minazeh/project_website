@@ -246,6 +246,20 @@ var tr;
 
     });
 
+    $('.btnNext1').click(function(){
+
+        $('.animation-1').fadeIn(function(){
+            $('#video_anim_1').trigger('play');
+        });
+
+    });
+
+    $('#video_anim_1').on('ended', function() {
+
+        $('.animation-1').fadeOut();
+
+    });
+
     $('.save_canvas').click(function () {
 
         var fileName = generateFileName();

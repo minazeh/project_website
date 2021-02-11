@@ -23,6 +23,16 @@
 
 </div>
 
+<div class="intro-overlay animation-1" style="display: none;">
+
+    <video id="video_anim_1" style="position: fixed; min-height:100%; min-width: 100%; right: 0; bottom: 0;">
+        <source src="img/cny-1.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+
+
+</div>
+
 <div class="container-fluid hidden" id="main-system">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-9 col-md-12 col-lg-9 col-xl-9 text-center p-0 mt-3 mb-2">
@@ -56,13 +66,13 @@
                                             <img src="template/ecard-template/ecard-template-1.png" class="back" alt="">
                                         </div>
                                     </li>
-                                    <li  class="flip-item">
+                                    <li class="flip-item">
                                         <div class="flip-holder">
                                             <img class="gif-item freezeGIF front" data-val="card-2" data-status="false" src="./img/card-template-2.png" alt="">
                                             <img src="template/ecard-template/ecard-template-2.png" class="back" alt="">
                                         </div>
                                     </li>
-                                    <li  class="flip-item">
+                                    <li class="flip-item">
                                         <div class="flip-holder">
                                             <img class="gif-item freezeGIF front" data-val="card-3" data-status="false" src="./img/card-template-3.png" alt="">
                                             <img src="template/ecard-template/ecard-template-3.png" class="back" alt="">
@@ -72,26 +82,26 @@
 
                                 <ul class="gif-selection">
 
-                                    <li  class="flip-item">
+                                    <li class="flip-item">
                                         <div class="flip-holder">
                                             <img class="gif-item freezeGIF front" data-val="card-4" data-status="false" src="./img/card-template-4.png" alt="">
                                             <img src="template/ecard-template/ecard-template-4.png" class="back" alt="">
                                         </div>
                                     </li>
-                                    <li  class="flip-item">
+                                    <li class="flip-item">
                                         <div class="flip-holder">
                                             <img class="gif-item freezeGIF front" data-val="card-5" data-status="false" src="./img/card-template-5.png" alt="">
                                             <img src="template/ecard-template/ecard-template-5.png" class="back" alt="">
                                         </div>
                                     </li>
-                                    
+
                                 </ul>
 
                             </div>
 
                         </div>
 
-                        <input type="button" name="next" class="next action-button" value="Next" />
+                        <input type="button" name="next" class="next action-button btnNext1" value="Next" />
 
                     </fieldset>
 
@@ -101,7 +111,7 @@
                                 <div class="col-7">
                                     <h2 class="fs-title">Customise AN AUSPICIOUS Message</h2>
                                 </div>
-                                
+
                             </div>
                             <div class="row">
 
@@ -151,7 +161,7 @@
                                 <div class="col-7">
                                     <h2 class="fs-title text-center">sender and recipient DETAILS</h2>
                                 </div>
-                                
+
                             </div>
 
                             <div class="row justify-content-center">
@@ -161,7 +171,7 @@
                                     <img src="" id="temp_prev" alt="">
 
                                 </div>
-                                
+
                                 <div class="col-6 rec_field">
                                     <label class="fieldlabels">Salutation</label>
                                     <select name="salutation" class="form-control" id="salutation">
@@ -193,7 +203,7 @@
                             </div>
                             <br><br>
                             <div class="row justify-content-center">
-                                <div class="col-12 share-icons"> 
+                                <div class="col-12 share-icons">
                                     <ul>
                                         <li>
                                             <a href="#"><i class="fab fa-whatsapp"></i></a>
