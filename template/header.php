@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>TOOLART - Send A Personalised Auspicious Greeting & A Fortune Cookie!</title>
+  <title>TOOLBOX DESIGN - Send A Personalised Auspicious Greeting!</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 

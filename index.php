@@ -1,49 +1,21 @@
 <?php require './template/header.php'; ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-darkest">
-    <div class="container">
-        <a class="navbar-brand m-2" href="javascript:void(0);">
-            <img src="img/toolart-logo.png" alt="" width="217" height="44" class="d-inline-block align-top">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-
-                </li>
-            </ul>
-            <ul class="navbar-nav mb-2 mr-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="https://www.toolart.sg/product-category/product/">SHOP</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://toolart.sg/contact-us/">CONTACT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://toolart.sg/workshops/">WORKSHOP</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 <div class="intro-overlay">
 
     <div class="logo-wrapper">
 
-        <img src="img/landing-gif.gif" alt="">
+        <img src="img/main-logo.png" style="max-width: 400px" alt="">
 
     </div>
 
     <div class="text-wrapper">
 
         <p>
-            Send A Personalised Auspicious Greeting & A Fortune Cookie!
+            SEND AN AUSPICIOUS<br>LUNAR NEW YEAR E-GREETING<br>
+            <small>Customise Your Own Couplet & Spread Some Festive Cheers! </small>
         </p>
 
-        <a href="javascript:void(0);" class="custom-button get-started">LET’S GET CRACKING</a>
+        <a href="#" class="custom-button get-started btn-animate-1">GET STARTED</a>
 
     </div>
 
@@ -51,17 +23,43 @@
 
 </div>
 
+<div class="intro-overlay animation-1" style="display: none;">
+
+    <video id="video_anim_1" playsinline style="position: fixed; min-height:100%; min-width: 100%; left: 50%; transform: translate(-50%, 0); bottom: 0;">
+        <source src="img/vid-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="skip" style="position: fixed; bottom: 20px;  right: 20px;">
+        <a href="javascript:void(0);" style="text-decoration: none; color: gray;">SKIP</a>
+    </div>
+
+</div>
+
+<div class="intro-overlay animation-2" style="display: none;">
+
+    <video id="video_anim_2" playsinline style="position: fixed; min-height:100%; min-width: 100%;left: 50%;  transform: translate(-50%, 0); bottom: 0;">
+        <source src="img/vid-2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="skip" style="position: fixed; bottom: 20px;  right: 20px;">
+        <a href="javascript:void(0);" style="text-decoration: none; color: gray;">SKIP</a>
+    </div>
+
+</div>
+
 <div class="intro-overlay hidden animation-processing" style="top: 0;">
 
     <div class="logo-wrapper">
 
-        <img src="img/fortune-cookie.png" alt="">
+        <!-- <img src="img/fortune-cookie.png" alt=""> -->
 
     </div>
 
     <div class="text-wrapper">
 
-        <p>
+        <p style="margin-top: 300px;">
             Processing your eCard please wait...
         </p>
         <div class="loader-dots"></div>
@@ -79,52 +77,50 @@
                 <!-- <p>Customise your own festive greeting card and send it your loved ones!</p> -->
                 <form id="msform">
                     <!-- progressbar -->
+                    <div class="logo-wrapper">
+
+                        <img src="img/main-logo.png" style="max-width: 200px; margin-bottom: 40px;" alt="">
+
+                    </div>
                     <ul id="progressbar">
-                        <li class="active" id="account" style="color: black;">Pick A<br>Fortune Cookie</li>
-                        <li id="personal" style="color: black;">Customise<br>Your Greeting</li>
-                        <li id="payment" style="color: black;">Receiver<br>& Sender Details</li>
-                        <li id="confirm" style="color: black;">Share<br>Your Fortune</li>
+                        <li class="active" id="account"><strong>Select A Couplet</strong></li>
+                        <li id="personal"><strong>Customise An Auspicious Message</strong></li>
+                        <li id="payment"><strong>Send Your Blessings</strong></li>
+                        <li id="confirm"><strong>Huat Ah!</strong></li>
                     </ul>
 
                     <fieldset>
 
                         <div class="form-card">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h2 class="fs-title">SELECT A FORTUNE FLAVOUR</h2>
-                                </div>
-
-                            </div>
 
                             <div class="row mt-2">
 
                                 <ul class="gif-selection">
 
                                     <li class="flip-item">
-                                        <img class="gif-item freezeGIF front" data-val="card-1" data-status="false" src="./img/card-template-1.png" alt="">
-                                        <img class="rays hidden" data-val="card-1" src="./img/rays.png" alt="">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-1" data-status="false" src="./img/card-template-1.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-1.png" style="display: none;" class="back" alt="">
+                                        </div>
                                     </li>
                                     <li class="flip-item">
-                                        <img class="gif-item freezeGIF front" data-val="card-2" data-status="false" src="./img/card-template-2.png" alt="">
-                                        <img class="rays hidden" data-val="card-1" src="./img/rays.png" alt="">
-                                    </li>
-
-                                </ul>
-
-                                <ul class="gif-selection">
-                                    <li class="flip-item">
-                                        <img class="gif-item freezeGIF front" data-val="card-3" data-status="false" src="./img/card-template-3.png" alt="">
-                                        <img class="rays hidden" data-val="card-1" src="./img/rays.png" alt="">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-2" data-status="false" src="./img/card-template-2.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-2.png" style="display: none;" class="back" alt="">
+                                        </div>
                                     </li>
                                     <li class="flip-item">
-                                        <img class="gif-item freezeGIF front" data-val="card-4" data-status="false" src="./img/card-template-4.png" alt="">
-                                        <img class="rays hidden" data-val="card-1" src="./img/rays.png" alt="">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-3" data-status="false" src="./img/card-template-3.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-3.png" style="display: none;" class="back" alt="">
+                                        </div>
                                     </li>
                                     <li class="flip-item">
-                                        <img class="gif-item freezeGIF front" data-val="card-5" data-status="false" src="./img/card-template-5.png" alt="">
-                                        <img class="rays hidden" data-val="card-1" src="./img/rays.png" alt="">
+                                        <div class="flip-holder">
+                                            <img class="gif-item freezeGIF front" data-val="card-4" data-status="false" src="./img/card-template-4.png" alt="">
+                                            <img src="template/ecard-template/ecard-template-4.png" style="display: none;" class="back" alt="">
+                                        </div>
                                     </li>
-
                                 </ul>
 
                             </div>
@@ -139,7 +135,7 @@
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-7 col-12">
-                                    <h2 class="fs-title" style="text-align:left;">CUSTOMISE YOUR GREETING</h2>
+                                    <h2 class="fs-title" style="text-align:left; text-transform: uppercase;">Customise AN AUSPICIOUS Message</h2>
                                 </div>
 
                             </div>
@@ -157,7 +153,7 @@
 
                                     <div class="d-lg-none d-md-none d-xs-block">
 
-                                        <span class="form-label">Tap and drag stickers on your Card</span>
+                                        <span class="form-label">CLICK TO SELECT STICKER. STICKER WILL APPEAR THEN DRAG & POSITION.</span>
 
                                         <br>
 
@@ -167,23 +163,23 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="receiver" class="form-label">TO</label>
+                                        <label for="receiver" class="form-label"><strong> TO</strong></label>
                                         <input type="text" placeholder="Receiver's Name" class="form-control" id="receiver">
                                     </div>
 
                                     <div class="">
-                                        <label for="message" class="form-label">MESSAGE</label>
+                                        <label for="message" class="form-label"><strong>MESSAGE</strong></label>
                                         <textarea name="message" placeholder="Type Your Auspicious Message" id="message" cols="30" rows="4"></textarea>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="receiver" class="form-label">FROM</label>
+                                        <label for="receiver" class="form-label"><strong>FROM</strong></label>
                                         <input type="text" placeholder="Sender's Name" class="form-control" id="sender">
                                     </div>
 
                                     <div class="d-none d-md-block d-lg-block">
 
-                                        <span class="form-label">Drag and drop stickers to your Card</span>
+                                        <span class="form-label"><strong>CLICK TO SELECT STICKER. STICKER WILL APPEAR THEN DRAG & POSITION.</strong></span>
 
                                         <br>
 
@@ -193,8 +189,7 @@
                                     </div>
 
 
-                                    <a href="javascript:void(0);" class="custom-button prevBtn" style="float:left; margin-top: 0;">PREVIOUS</a>
-                                    <a href="javascript:void(0);" class="custom-button  nextBtn" style="float:left; margin-left: 15px; min-width: 130px; margin-top: 0;">NEXT</a>
+
 
                                 </div>
 
@@ -206,6 +201,11 @@
                             <br>
 
                         </div>
+                        <div class="btn-holder" style="position:relative;">
+                            <a href="javascript:void(0);" class="custom-button  section-button prevBtn" style=" margin-top: 0; background: #DA2128;">PREVIOUS</a>
+                            <a href="javascript:void(0);" class="custom-button section-button nextBtn" style="margin-left: 15px; min-width: 130px; margin-top: 0; background: #DA2128;">NEXT</a>
+                        </div>
+
                         <input type="button" name="next" class="next action-button save_canvas hidden nextTrigger" value="Next" />
                         <input type="button" name="previous" class="previous action-button-previous hidden prevTrigger" value="Previous" />
                     </fieldset>
@@ -227,7 +227,7 @@
 
                                 </div>
 
-                                <div class="col-md-6 col-12 rec_field">
+                                <div class="col-md-6 col-12 rec_field" style="padding-top: 60px;">
 
                                     <div class="alert alert-fields alert-danger hidden" role="alert">
                                         <strong>All fields are required.</strong>
@@ -248,12 +248,15 @@
                                     <label class="fieldlabels">Receiver's Email</label>
                                     <input type="email" id="recipient_email" class="form-control" name="recipient_email">
                                     <br><br>
-                                    <a href="javascript:void(0);" class="custom-button prevBtn1" style="float:left; margin-top: 0;">PREVIOUS</a>
-                                    <a href="javascript:void(0);" class="custom-button  nextBtn1" style="float:left; margin-left: 15px; min-width: 130px; margin-top: 0;">NEXT</a>
+
 
                                 </div>
                             </div>
 
+                        </div>
+                        <div class="btn-holder" style="position:relative;">
+                            <a href="javascript:void(0);" class="custom-button section-button prevBtn1" style="float:left; background: #DA2128;">PREVIOUS</a>
+                            <a href="javascript:void(0);" class="custom-button section-button nextBtn1" style="float:left; margin-left: 15px; min-width: 130px; background: #DA2128;">NEXT</a>
                         </div>
                         <input type="button" name="next" class="next action-button hidden submitBtn nextTrigger1" value="Send" />
                         <input type="button" name="previous" class="previous action-button-previous hidden prevTrigger1" value="Previous" />
@@ -262,7 +265,7 @@
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-12">
-                                    <h2 class="fs-title" style="text-transform: capitalize;"><strong>How Would You Like To Send Your Fortune Cookie?</strong></h2>
+                                    <h2 class="fs-title" style="text-transform: uppercase; text-align: center;">HOW WOULD YOU LIKE TO SPREAD THE FESTIVE JOY?</h2>
                                 </div>
                             </div>
                             <br><br>
@@ -296,7 +299,7 @@
 
                                     </ul>
 
-                                    <a href="javascript:void(0);" class="resetBtn">SEND ANOTHER FORTUNE COOKIE</a>
+                                    <a href="javascript:void(0);" class="resetBtn">SEND ANOTHER COUPLET</a>
 
                                 </div>
                             </div>

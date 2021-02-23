@@ -10,7 +10,7 @@ p {
 }
 #heading {
   text-transform: uppercase;
-  color: #673ab7;
+  color: #673AB7;
   font-weight: normal;
 }
 #msform {
@@ -19,7 +19,7 @@ p {
   margin-top: 20px;
 }
 #msform fieldset {
-  background: #fff1e2;
+  background: white;
   border: 0 none;
   border-radius: 0.5rem;
   box-sizing: border-box;
@@ -27,6 +27,7 @@ p {
   margin: 0;
   padding-bottom: 20px;
   position: relative;
+  margin-bottom: 100px;
 }
 .form-card {
   text-align: left;
@@ -34,64 +35,53 @@ p {
 #msform fieldset:not(:first-of-type) {
   display: none;
 }
-.form-label,
-.fieldlabels {
-  font-family: "Times New Roman", Times, serif;
-  color: black !important;
-  font-weight: bold;
-  font-size: 17px;
-  text-transform: uppercase;
-}
 #msform input,
 #msform textarea {
   padding: 8px 15px 8px 15px;
-  border: 1px solid black;
+  border: 1px solid #ccc;
   border-radius: 0px;
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
-  color: #2c3e50;
-  background-color: #fff1e2;
+  color: #2C3E50;
+  background-color: #ECEFF1;
   font-size: 16px;
   letter-spacing: 1px;
   margin-bottom: 20px;
-}
-#msform input::placeholder,
-#msform textarea::placeholder {
-  color: black;
-  opacity: 1;
 }
 #msform input:focus,
 #msform textarea:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #000;
+  border: 1px solid #673AB7;
   outline-width: 0;
 }
 #msform .action-button {
-  background: black;
+  width: 100px;
+  background: #673AB7;
+  font-weight: bold;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: -60px 0px 10px 5px;
+  float: right;
   color: white;
-  padding: 10px 20px;
-  font-weight: 700;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-  max-width: 210px;
-  font-family: "Helvetica", sans-serif;
-  font-size: 15px;
+  background: #DA2128;
+  border-radius: 10px;
+  font-family: 'Quicksand', 'Sans-serif';
   text-transform: uppercase;
+  position: relative;
+  z-index: 9;
 }
 #msform .action-button:hover,
 #msform .action-button:focus {
-  color: black;
-  background: #fff1e2;
-  border: 1px solid black;
+  background-color: #DA2128;
 }
 #msform .action-button-previous {
   width: 100px;
-  background: #673ab7;
+  background: #673AB7;
   font-weight: bold;
   border: 0 none;
   border-radius: 0px;
@@ -102,14 +92,14 @@ p {
   color: white;
   background: #bdd631;
   border-radius: 10px;
-  font-family: "Quicksand", "Sans-serif";
+  font-family: 'Quicksand', 'Sans-serif';
   text-transform: uppercase;
   position: relative;
   z-index: 9;
 }
 #msform .action-button-previous:hover,
 #msform .action-button-previous:focus {
-  background-color: #da2128;
+  background-color: #DA2128;
 }
 .card {
   z-index: 0;
@@ -117,17 +107,15 @@ p {
   position: relative;
 }
 .fs-title {
-  font-size: 30px;
-  color: black;
+  font-size: 25px;
+  color: #808285;
   margin-bottom: 15px;
   font-weight: normal;
   text-align: left;
   text-transform: uppercase;
-  font-family: "Times New Roman", Times, serif;
-  text-align: center;
 }
 .purple-text {
-  color: #673ab7;
+  color: #673AB7;
   font-weight: normal;
 }
 .steps {
@@ -148,120 +136,89 @@ p {
   padding: 0px 100px;
 }
 #progressbar .active {
-  color: #000;
-  font-weight: bold !important;
+  color: #DA2128;
+  font-weight: 400;
+}
+#progressbar .active:before {
+  background-image: url('../img/diamond-red.png') !important;
 }
 #progressbar li {
   list-style-type: none;
   font-size: 15px;
-  line-height: 18px;
   width: 25%;
   float: left;
   position: relative;
   font-weight: 400;
 }
-#progressbar li strong {
-  color: black;
-  font-weight: normal;
-}
 #progressbar #account:before {
-  background-image: url("../img/progress-1.png");
+  background-image: url('../img/diamond-green.png?1203');
   background-position: center;
   background-repeat: no-repeat;
-  content: " ";
+  content: '1';
 }
 #progressbar #personal:before {
-  background-image: url("../img/progress-2.png");
+  background-image: url('../img/diamond-green.png?1203');
   background-position: center;
   background-repeat: no-repeat;
-  content: " ";
+  content: '2';
+}
+#progressbar #personal:before:has(.active) {
+  background-image: url('../img/diamond-red.png?1203');
 }
 #progressbar #payment:before {
-  background-image: url("../img/progress-3.png");
+  background-image: url('../img/diamond-green.png?1203');
   background-position: center;
   background-repeat: no-repeat;
-  content: " ";
+  content: '3';
 }
 #progressbar #confirm:before {
-  background-image: url("../img/progress-4.png");
+  background-image: url('../img/diamond-green.png?12038');
   background-position: center;
   background-repeat: no-repeat;
-  content: " ";
+  content: '4';
 }
 #progressbar li:before {
-  width: 45px;
-  height: 84px;
-  line-height: 84px;
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
   display: block;
   font-size: 20px;
+  color: #ffffff;
+  background: white;
   border-radius: 50%;
   margin: 0 auto 10px auto;
   padding: 2px;
 }
 #progressbar li:after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
+  background: lightgray;
   position: absolute;
-  left: -15px;
-  top: 35px;
+  left: 0;
+  top: 25px;
   z-index: -1;
+}
+#progressbar li.active:before {
+  background: white;
 }
 #progressbar li:first-child:after {
   width: 50%;
   left: 50%;
-  background-image: none;
 }
 #progressbar li:last-child:after {
   width: 50%;
 }
 #progressbar li:after {
-  background-image: url("../img/arrow-progress.png");
-  height: 84px !important;
-  background-repeat: no-repeat;
+  background: #FFA400;
 }
 .progress {
   height: 20px;
 }
 .progress-bar {
-  background-color: #673ab7;
+  background-color: #673AB7;
 }
 .fit-image {
   width: 100%;
   object-fit: cover;
-}
-@media only screen and (max-width: 990px) {
-  #msform {
-    margin-top: 0px;
-  }
-  #progressbar {
-    padding: 0px 10px;
-  }
-  #progressbar li {
-    font-size: 10px;
-    line-height: 14px;
-  }
-  #progressbar li:before {
-    width: 35px;
-    height: 50px;
-  }
-  #progressbar li:after {
-    top: 20px;
-  }
-  #progressbar #account:before {
-    background-size: contain;
-  }
-  #progressbar #personal:before {
-    background-size: contain;
-  }
-  #progressbar #payment:before {
-    background-size: contain;
-  }
-  #progressbar #confirm:before {
-    background-size: contain;
-  }
-  .fs-title {
-    font-size: 22px;
-    text-align: center !important;
-  }
 }

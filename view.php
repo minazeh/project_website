@@ -4,36 +4,13 @@
 <!-- PHP CODESS -->
 <?php $data = new Mysql(); ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-darkest">
-    <div class="container">
-        <a class="navbar-brand m-2" href="#">
-            <img src="img/toolart-logo.png" alt="" width="217" height="44" class="d-inline-block align-top">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+<div class="intro-overlay viewer">
 
-                </li>
-            </ul>
-            <ul class="navbar-nav mb-2 mr-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="https://www.toolart.sg/product-category/product/">SHOP</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://toolart.sg/contact-us/">CONTACT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://toolart.sg/workshops/">WORKSHOP</a>
-                </li>
-            </ul>
-        </div>
+    <div class="logo-wrapper">
+
+        <img src="img/main-logo.png" alt="">
+
     </div>
-</nav>
-
-<div class="intro-overlay">
 
     <div class="text-wrapper">
 
@@ -43,25 +20,27 @@
             <?php echo $data->get_data($_GET['perm_id'], 'recipient_name'); ?>
         </p>
 
-        <div class="logo-wrapper viewer">
-
-            <img style="max-width: 200px;" src="img/prev-<?php echo $data->get_data($_GET['perm_id'], 'image_type'); ?>.png" alt="">
-
-        </div>
-
-        <div class="fortune-text">
-            You Have A Fortune Cookie From
-        </div>
-
         <p class="name sender-name mt-2">
-            <?php echo $data->get_data($_GET['perm_id'], 'sender_name'); ?>
+            You Have A Festive Greeting From <?php echo $data->get_data($_GET['perm_id'], 'sender_name'); ?>
         </p>
 
-        <a href="javascript:void(0);" class="custom-button get-started">CRACK IT!</a>
+        <a href="javascript:void(0);" class="custom-button get-started">OPEN</a>
 
     </div>
 
     <div class="clearfix"></div>
+
+</div>
+<div class="intro-overlay animation-1" style="display: none;">
+
+    <video id="video_anim_1" playsinline style="position: fixed; min-height:100%; min-width: 100%; left: 50%; transform: translate(-50%, 0); bottom: 0;">
+        <source src="img/full_vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="skip" style="position: fixed; bottom: 20px;  right: 20px;">
+        <a href="javascript:void(0);" style="text-decoration: none; color: gray;">SKIP</a>
+    </div>
 
 </div>
 
@@ -69,27 +48,25 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-md-5 col-12">
+        <div class="col-md-6 col-12">
 
             <div class="viewer-gif-wrapper">
 
-                <div class="gif-image-wrapper ">
 
-                    <video id="play_vid" width="520" height="520" playsinline>
-                        <source src="img/e-<?php echo $data->get_data($_GET['perm_id'], 'image_type'); ?>.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="gif-image-wrapper text-center gif-card" style="display: none; position: relative;">
+                    <br>
+                    <br>
+                    <img style="width: 100%;" src="<?php echo $data->get_data($_GET['perm_id'], 'image_url');
+                                                    ?>" alt="">
+
+                    <div class="btn-holders">
+                        <a href="https://www.toolart.sg/demo/sentosa-greeting/" class="custom-button  play-video-button">Send Your Couplet</a>
+                        <a href="javascript:void(0);" class="custom-button play-video-button btn-animate-1">Play Video</a>
+                    </div>
 
                 </div>
 
-                <div class="gif-image-wrapper text-center gif-card" style="display: none;">
 
-                    <img src="<?php echo $data->get_data($_GET['perm_id'], 'image_url'); ?>" alt="">
-
-                </div>
-
-                <a href="javascript:void(0);" class="custom-button hidden play-video-button">Play Video</a>
-                <a href="https://www.toolart.sg/custom-greetings/" class="custom-button  hidden play-video-button">Send A Fortune Cookie</a>
 
 
             </div>
@@ -108,38 +85,36 @@
 <script src="js/plugins.js"></script>
 
 <script>
-
-
     (function($) {
 
         $('.get-started').click(function() {
             $('#main-system').removeClass('hidden');
-            $('#main-system').hide();
             $('.intro-overlay').fadeOut();
             setTimeout(function() {
                 $('#main-system').fadeIn();
-                $('#play_vid').trigger('play');
+                $('.gif-card').fadeIn();
             }, 500)
         });
 
-        $('#play_vid').on('ended', function() {
-            $('.gif-card').fadeIn();
+        $('.btn-animate-1').click(function() {
+            $('.animation-1').fadeIn();
+            $('#video_anim_1').trigger('play');
+        });
 
-            setTimeout(function() {
-                $('.play-video-button').removeClass('hidden');
-            }, 1000);
+        $('.skip > a').click(function() {
+            $('.animation-1').fadeOut();
+            $('#video_anim_1').trigger('pause');
+        });
+
+        $('#video_anim_1').on('ended', function() {
+
+            $('.animation-1').fadeOut();
 
         });
 
-        $('.play-video-button').click(function() {
 
-            $('.gif-card').hide();
-            $('#play_vid').trigger('play');
-
-        });
 
     })(jQuery);
-    
 </script>
 
 </body>

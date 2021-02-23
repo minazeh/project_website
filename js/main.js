@@ -16,53 +16,8 @@ var luckyNumber;
 var fortuneText;
 var fortuneVar;
 var imageType;
-
-//shuffle the sequence and take the first 4 values 
-var luckNum = shuffle(numset).slice(0, 4);
-luckNum = luckNum.toString().replace(/,/g, "");
-
-
-const loveMessage = [
-    'One Who Admires You Greatly Is Hidden Before Your Eyes.',
-    'The Time Is Right To Make New Friends.',
-    'Love, Because It Is The Only True Adventure.',
-    'You Won’t Know Until You Try.',
-    'Never Lose The Ability To Find Beauty In Ordinary Things.',
-];
-
-const careerMessage = [
-    'It’s Not The Destination, It’s The Journey.',
-    'Bide Your Time, For Success Is Near.',
-    'Someone Has Googled You Recently.',
-    'Be Prepared To Accept An Exciting Opportunity.',
-    'A Ship In Harbor Is Safe, But That’s Not Why Ships Are Built.',
-];
-
-const wealthMessage = [
-    'Every Person Is The Architect Of His Or Her Own Fortune.',
-    'Your Luck Will Take A Turn For The Better.	',
-    'An Unexpected Event Will Soon Bring You Financial Rewards.',
-    'New Ideas Could Be Profitable.',
-    'You Will Prosper In The New Year.',
-];
-
-const familyMessage = [
-    'You Will Received Good News From A Loved One Soon.',
-    'When We Have Each Other, We Have Everything.',
-    'Patience Is Your Alley At The Moment. Don’t Worry!',
-    'Don’t Worry About Money. The Best Things In Life Are Free.',
-    'To Avoid Criticism, Do Nothing, Say Nothing.',
-];
-
-const healthMessage = [
-    'You Will Enjoy Good Health.',
-    'Now Would Be A Good Time To Take Up A New Sport. ',
-    'Love Your Body Because You Only Have One.',
-    'Invest In Your Health. Eat A Balanced Diet!',
-    'Self-care Is How You Take Your Power Back.	',
-];
-
-var random;
+var containerWidth;
+var scale;
 
 var stage = new Konva.Stage({
     container: 'container',
@@ -74,9 +29,9 @@ function fitStageIntoParentContainer() {
     var container = document.querySelector('#stage-parent');
 
     // now we need to fit stage into parent
-    var containerWidth = container.offsetWidth;
+    containerWidth = container.offsetWidth;
     // to do this we need to scale the stage
-    var scale = containerWidth / stageWidth;
+    scale = containerWidth / stageWidth;
 
     stage.width(stageWidth * scale);
     stage.height(stageHeight * scale);
@@ -125,8 +80,8 @@ window.addEventListener('resize', fitStageIntoParentContainer);
             image: canvas,
             x: 0,
             y: 0,
-            width: 65,
-            height: 65,
+            width: 100,
+            height: 150,
             draggable: true,
 
         });
@@ -179,8 +134,8 @@ window.addEventListener('resize', fitStageIntoParentContainer);
             var image = new Konva.Image({
                 image: canvas,
                 position: stage.getPointerPosition(),
-                width: 65,
-                height: 65,
+                width: 100,
+                height: 150,
                 draggable: true,
 
             });
@@ -193,74 +148,54 @@ window.addEventListener('resize', fitStageIntoParentContainer);
         textLayer = new Konva.Layer();
 
         receiverText = new Konva.Text({
-            x: 70,
-            y: 65,
+
+            y: 85,
             text: '',
             fontSize: 18,
-            fontFamily: 'Times New Roman',
-            fill: 'black',
+            fontFamily: 'Quicksand',
+            fill: '#DA2128',
             fontStyle: 'bold',
+            align: 'center',
         });
 
         messageText = new Konva.Text({
-            x: 70,
-            y: 105,
+            y: 125,
             text: '',
             fontSize: 18,
-            fontFamily: 'Helvetica',
-            fill: 'black',
+            fontFamily: 'Quicksand',
+            fill: '#DA2128',
+            align: 'center',
         });
 
         senderText = new Konva.Text({
-            x: 320,
-            y: 350,
+
+            y: 370,
             text: '',
             fontSize: 18,
-            fontFamily: 'Times New Roman',
-            fill: 'black',
+            fontFamily: 'Quicksand',
+            fill: '#DA2128',
             draggable: true,
             fontStyle: 'bold',
-            align: 'right',
-        });
-
-        luckyNumber = new Konva.Text({
-            x: stageWidth / 2,
-            y: 420,
-            text: 'LUCKY No: ' + luckNum,
-            fontSize: 13,
-            fontFamily: 'Times New Roman',
-            fill: 'black',
-            fontStyle: 'bold',
             align: 'center',
         });
 
-        fortuneText = new Konva.Text({
-            x: stageWidth / 2,
-            y: 400,
-            text: fortuneVar,
-            fontSize: 13,
-            fontFamily: 'Times New Roman',
-            fill: 'black',
-            fontStyle: 'bold',
-            align: 'center',
-        });
-
-        fortuneLayer.add(fortuneText);
-
-        luckyNumber.offsetX(luckyNumber.width() / 2);
+        messageText.offsetX(messageText.width() / 3);
+        receiverText.offsetX(receiverText.width() / 3);
+        senderText.offsetX(senderText.width() / 3);
 
         textLayer.add(messageText);
         textLayer.add(receiverText);
         textLayer.add(senderText);
-        textLayer.add(luckyNumber);
 
         stage.add(textLayer);
-        stage.add(fortuneLayer);
 
     }); // end document ready function
 
     $('#message').keyup(function () {
 
+        messageText.width(500);
+        messageText.x(500 / 2);
+        messageText.offsetX(messageText.width() / 2);
         messageText.text($(this).val());
         textLayer.draw();
 
@@ -269,6 +204,9 @@ window.addEventListener('resize', fitStageIntoParentContainer);
     $('#receiver').keyup(function () {
 
         receiverText.text($(this).val());
+        receiverText.width(500);
+        receiverText.x(500 / 2);
+        receiverText.offsetX(receiverText.width() / 2);
         textLayer.draw();
 
     });
@@ -276,6 +214,9 @@ window.addEventListener('resize', fitStageIntoParentContainer);
     $('#sender').keyup(function () {
 
         senderText.text($(this).val());
+        senderText.width(500);
+        senderText.x(500 / 2);
+        senderText.offsetX(senderText.width() / 2);
         textLayer.draw();
 
     });
@@ -289,45 +230,31 @@ window.addEventListener('resize', fitStageIntoParentContainer);
 
             case 'card-1':
                 card_template = 1;
-                random = Math.floor(Math.random() * loveMessage.length);
-                fortuneVar = loveMessage[random];
+
                 imageType = 1;
-                console.log(fortuneVar);
                 break;
 
             case 'card-2':
                 card_template = 2;
-                random = Math.floor(Math.random() * careerMessage.length);
-                fortuneVar = careerMessage[random];
+
                 imageType = 2;
                 break;
 
             case 'card-3':
                 card_template = 3;
-                random = Math.floor(Math.random() * wealthMessage.length);
-                fortuneVar = wealthMessage[random];
+
                 imageType = 3;
                 break;
 
             case 'card-4':
                 card_template = 4;
-                random = Math.floor(Math.random() * familyMessage.length);
-                fortuneVar = familyMessage[random];
+
                 imageType = 4;
                 break;
 
-            case 'card-5':
-                card_template = 5;
-                random = Math.floor(Math.random() * healthMessage.length);
-                fortuneVar = healthMessage[random];
-                imageType = 5;
-                break;
-
+        
         }
 
-        fortuneText.text(fortuneVar);
-        fortuneText.offsetX(fortuneText.width() / 2);
-        fortuneLayer.draw();
 
         console.log(card_template);
         // add the selected image from the first section
@@ -349,37 +276,26 @@ window.addEventListener('resize', fitStageIntoParentContainer);
         switch (card_template) {
 
             case 1:
-                imageObj.src = './template/ecard-template/ecard-template-1.png';
+                imageObj.src = './template/ecard-template/bg-template-1.png';
                 break;
             case 2:
-                imageObj.src = './template/ecard-template/ecard-template-2.png';
+                imageObj.src = './template/ecard-template/bg-template-2.png';
                 break;
             case 3:
-                imageObj.src = './template/ecard-template/ecard-template-3.png';
+                imageObj.src = './template/ecard-template/bg-template-3.png';
                 break;
             case 4:
-                imageObj.src = './template/ecard-template/ecard-template-4.png';
-                break;
-            case 5:
-                imageObj.src = './template/ecard-template/ecard-template-5.png';
+                imageObj.src = './template/ecard-template/bg-template-4.png';
                 break;
 
             default:
-                imageObj.src = './template/ecard-template/ecard-template-1.png';
+                imageObj.src = './template/ecard-template/bg-template-1.png';
                 break;
 
         }
 
-        $('.rays').each(function () {
-
-            if ($(this).hasClass('hidden')) {
-            } else {
-                $(this).addClass('hidden');
-            }
-
-        });
-
-        $(this).parent().children('.rays').removeClass('hidden');
+        $('.flip-holder').removeClass('flip-hover');
+        $(this).parent().addClass('flip-hover');
 
     });
 
@@ -391,10 +307,32 @@ window.addEventListener('resize', fitStageIntoParentContainer);
 
     });
 
+    $('.btn-animate-1').click(function () {
+
+        $('.animation-1').fadeIn();
+        $('#video_anim_1').trigger('play');
+    });
+
+    $('.skip > a').click(function(){
+        $('.animation-1').fadeOut();
+        $('#video_anim_1').trigger('pause');
+    });
+
+    $('#video_anim_1').on('ended', function () {
+
+        $('.animation-1').fadeOut();
+        
+
+    });
+
+    $('#video_anim_2').on('ended', function () {
+
+        $('.animation-2').fadeOut();
+
+
+    });
 
     $('.submitBtn').click(function (e) {
-
-
 
         var data = new FormData();
         var perm_id = generateFileName();
@@ -419,7 +357,8 @@ window.addEventListener('resize', fitStageIntoParentContainer);
                 beforeSend: function () {
                     console.log('Start saving to the database');
                     document.body.scrollTop = document.documentElement.scrollTop = 0;
-                    $('.animation-processing').removeClass('hidden');
+                    $('.animation-2').show();
+                    $('#video_anim_2').trigger('play');
                     $('body').addClass('no-scroll');
                 },
                 complete: function (response) {
@@ -427,16 +366,16 @@ window.addEventListener('resize', fitStageIntoParentContainer);
                     setTimeout(function () {
 
                         console.log('Data saved to the database');
-                        $('#urlLink').val('https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
-                        $('#whatsappLink').attr('href', 'https://api.whatsapp.com/send?text=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
-                        $('#facebookLink').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+                        $('#urlLink').val('https://www.toolart.sg/demo/sentosa-greeting/view.php?perm_id=' + perm_id);
+                        $('#whatsappLink').attr('href', 'https://api.whatsapp.com/send?text=https://www.toolart.sg/demo/sentosa-greeting/view.php?perm_id=' + perm_id);
+                        $('#facebookLink').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=https://www.toolart.sg/demo/sentosa-greeting/view.php?perm_id=' + perm_id);
 
-                        $('#mailLink').attr('href', ' mailto:' + $('#recipient_email').val() +'?body=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
-                        $('#twitterLink').attr('href', 'https://twitter.com/intent/tweet?url=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
-                        $('#smsLink').attr('href', 'sms:?&body=https://toolart.sg/custom-greetings/view.php?perm_id=' + perm_id);
+                        $('#mailLink').attr('href', ' mailto:' + $('#recipient_email').val() + '?body=https://www.toolart.sg/demo/sentosa-greeting/view.php?perm_id=' + perm_id);
+                        $('#twitterLink').attr('href', 'https://twitter.com/intent/tweet?url=http://www.toolart.sg/demo/sentosa-greeting/view.php?perm_id=' + perm_id);
+                        $('#smsLink').attr('href', 'sms:?&body=https://www.toolart.sg/demo/sentosa-greeting/view.php?perm_id=' + perm_id);
 
 
-                        $('.animation-processing').addClass('hidden');
+
                         $('body').removeClass('no-scroll');
 
                     }, 2000);
@@ -563,7 +502,7 @@ window.addEventListener('resize', fitStageIntoParentContainer);
                 $('.alert-fields').addClass('hidden');
             }
 
-            if ( validateEmail(sender_email) ) {
+            if (validateEmail(sender_email)) {
 
                 $('#staticBackdrop').modal('show');
 
